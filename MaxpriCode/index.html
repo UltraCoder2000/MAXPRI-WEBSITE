@@ -9,13 +9,13 @@
     "@type": "INC",
     "name": "Maxpri Technologies",
     "alternateName": "Maxpri INC",
-    "url": "https://maxpri-ultra.maxpri.workers.dev/",
-    "logo": "https://maxpri-ultra.maxpri.workers.dev/logo.png"
+    "url": "https://www.maxpri.workers.dev/",
+    "logo": "https://www.maxpri.workers.dev/logo.png"
     }
     
     </script>
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="google-site-verification" content="xSpFCrlfcObTb-7ka-fCu_UL_Wy7LFyzv_4ecoHwPAw" />
+    <meta name="google-site-verification" content="14PfBOkrCesIoQpfcg3j8bIzPxAFi1oicPl-r1lbe64" />
     <!-- EmailJS Library -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -25,6 +25,78 @@
     </script>
     <meta charset="utf-8">
     <style>
+        /* New Contact Details Section */
+        .contact-info-section {
+            padding: 6rem 2rem;
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-method-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-method-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.05) 100%);
+        }
+
+        .contact-method-icon {
+            font-size: 2.5rem;
+            width: 70px;
+            height: 70px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method-card:hover .contact-method-icon {
+            transform: scale(1.1);
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-method-card h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method-card p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .contact-method-card span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -1236,7 +1308,143 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* Tech Stack Ticker */
+        .tech-ticker {
+            overflow: hidden;
+            background: var(--darker);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .tech-ticker-inner {
+            display: flex;
+            gap: 3rem;
+            animation: tickerScroll 30s linear infinite;
+            width: max-content;
+        }
+        .tech-ticker-inner:hover { animation-play-state: paused; }
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .tech-badge {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: #6b7280; font-size: 0.85rem; font-weight: 600;
+            white-space: nowrap; letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+        .tech-badge:hover { color: var(--secondary); }
+        .tech-badge span { font-size: 1.1rem; }
+
+        /* Hero aurora glow */
+        .hero-aurora {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 20% 50%, rgba(6,182,212,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 30% at 80% 30%, rgba(59,130,246,0.08) 0%, transparent 60%);
+            pointer-events: none;
+            animation: auroraShift 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraShift {
+            0% { opacity: 0.7; transform: scale(1) translateY(0); }
+            100% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+        }
+
+        /* Animated counter */
+        .stat-number.counting { opacity: 1; }
+
+        /* ===== We Build Animation Section ===== */
+        .we-build-section {
+            padding: 6rem 2rem;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .we-build-inner {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .we-build-static {
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            white-space: nowrap;
+        }
+        .we-build-carousel {
+            overflow: hidden;
+            /* height = exactly one phrase line */
+            height: 1.15em;
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            position: relative;
+        }
+        .we-build-track {
+            display: flex;
+            flex-direction: column;
+            /* 6 phrases × 2.5s each = 15s total */
+            animation: weBuildScroll 15s steps(1, end) infinite;
+        }
+        /* Each phrase takes up exactly 1.15em */
+        .we-build-phrase {
+            display: block;
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            height: 1.15em;
+            white-space: nowrap;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), #a78bfa, var(--primary));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: phraseGradient 4s linear infinite;
+        }
+        /* Step through all 6 phrases — each step = 1/6 of 100% height of the track */
+        @keyframes weBuildScroll {
+            0%        { transform: translateY(0); }
+            16.666%   { transform: translateY(-16.666%); }
+            33.333%   { transform: translateY(-33.333%); }
+            50%       { transform: translateY(-50%); }
+            66.666%   { transform: translateY(-66.666%); }
+            83.333%   { transform: translateY(-83.333%); }
+            100%      { transform: translateY(0); }
+        }
+        @keyframes phraseGradient {
+            0%   { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+        /* Blinking cursor */
+        .we-build-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.85em;
+            background: var(--secondary);
+            margin-left: 0.15em;
+            vertical-align: middle;
+            animation: cursorBlink 1s step-end infinite;
+            border-radius: 2px;
+            flex-shrink: 0;
+            align-self: center;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        /* Message pop animation */
+        @keyframes msgPop {
+            from { opacity: 0; transform: translateY(8px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .chat-row { animation: msgPop 0.25s ease-out; }
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1360,67 +1568,14 @@
             margin-top: 0.5rem;
         }
 
-        /* Testimonials (new section) */
-        .testimonials {
-            padding: 6rem 2rem;
-            background: var(--dark);
-            text-align: center;
-        }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .testi-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: left;
-            transition: all 0.3s;
-        }
-        .testi-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
-        }
-        .testi-stars { color: #fbbf24; font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .testi-quote-mark {
-            font-size: 2.5rem;
-            line-height: 1;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.75rem;
-        }
-        .testi-text {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-        .testi-author { display: flex; align-items: center; gap: 0.75rem; }
-        .testi-avatar {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; color: var(--white); font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-        .testi-name { font-weight: 600; color: var(--white); font-size: 0.9rem; }
-        .testi-role { color: var(--gray); font-size: 0.8rem; }
-
-        /* AI Chat Widget */
+        /* ===== AI Chat Widget — Professional Redesign ===== */
         #chat-bubble {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            z-index: 800;
-            width: 58px;
-            height: 58px;
+            z-index: 9999;
+            width: 62px;
+            height: 62px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border: none;
@@ -1428,32 +1583,51 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
-            transition: all 0.3s;
-            font-size: 1.5rem;
+            box-shadow: 0 8px 28px rgba(59, 130, 246, 0.55);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: fixed;
         }
         #chat-bubble:hover {
-            transform: scale(1.08);
-            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.65);
+            transform: scale(1.1);
+            box-shadow: 0 14px 38px rgba(59, 130, 246, 0.7);
+        }
+        #chat-bubble svg { width: 28px; height: 28px; fill: white; pointer-events: none; }
+        #chat-bubble span { pointer-events: none; }
+        /* Unread badge */
+        #chat-badge {
+            position: absolute;
+            top: -3px; right: -3px;
+            width: 18px; height: 18px;
+            background: #ef4444;
+            border-radius: 50%;
+            border: 2px solid var(--dark);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.65rem; font-weight: 700; color: white;
+            animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #chat-badge.hidden { display: none; }
+        @keyframes badgePop {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
         }
         #chat-panel {
             position: fixed;
             bottom: 5.5rem;
             right: 2rem;
-            z-index: 800;
-            width: min(380px, calc(100vw - 2rem));
-            background: var(--card-bg);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 16px;
+            z-index: 9998;
+            width: min(400px, calc(100vw - 2rem));
+            background: #0f0f0f;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255,255,255,0.04);
             display: flex;
             flex-direction: column;
-            max-height: 520px;
-            transform: scale(0.9) translateY(20px);
+            max-height: 580px;
+            transform: scale(0.92) translateY(24px);
             opacity: 0;
             pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         #chat-panel.open {
             transform: scale(1) translateY(0);
@@ -1462,95 +1636,174 @@
         }
         .chat-header {
             padding: 1rem 1.25rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.1));
-            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(6, 182, 212, 0.15) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.85rem;
         }
         .chat-avatar {
-            width: 36px; height: 36px; border-radius: 50%;
+            width: 40px; height: 40px; border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex; align-items: center; justify-content: center;
-            font-size: 1rem; flex-shrink: 0;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
         }
-        .chat-title { color: var(--white); font-size: 0.95rem; font-weight: 600; }
-        .chat-status { color: var(--secondary); font-size: 0.75rem; }
+        .chat-avatar svg { width: 20px; height: 20px; fill: white; }
+        .chat-header-info { flex: 1; min-width: 0; }
+        .chat-title { color: var(--white); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.01em; }
+        .chat-status {
+            color: #34d399;
+            font-size: 0.72rem;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+        .chat-status::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: #34d399;
+            border-radius: 50%;
+            display: inline-block;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
         .chat-close-btn {
-            margin-left: auto;
-            cursor: pointer;
-            color: var(--gray);
-            font-size: 1.2rem;
-            background: none;
-            border: none;
-            transition: color 0.2s;
-            line-height: 1;
+            cursor: pointer; color: #6b7280; font-size: 1.1rem;
+            background: rgba(255,255,255,0.07); border: none;
+            border-radius: 8px; width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; flex-shrink: 0;
         }
-        .chat-close-btn:hover { color: var(--white); }
+        .chat-close-btn:hover { color: var(--white); background: rgba(255,255,255,0.13); }
+        /* Quick reply chips */
+        .chat-chips {
+            padding: 0.6rem 1rem 0;
+            display: flex; gap: 0.5rem; flex-wrap: wrap;
+        }
+        .chat-chip {
+            background: rgba(59,130,246,0.12);
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 999px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.76rem; color: #93c5fd;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .chat-chip:hover {
+            background: rgba(59,130,246,0.25);
+            border-color: var(--primary);
+            color: white;
+        }
         .chat-messages {
             flex: 1;
             overflow-y: auto;
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            max-height: 350px;
+            gap: 0.85rem;
+            max-height: 380px;
         }
-        .chat-messages::-webkit-scrollbar { width: 4px; }
-        .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+        .chat-messages::-webkit-scrollbar { width: 3px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+        /* Message row wrapper */
+        .chat-row { display: flex; gap: 0.5rem; align-items: flex-end; }
+        .chat-row.user { flex-direction: row-reverse; }
+        .chat-row-avatar {
+            width: 26px; height: 26px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 0.7rem;
+        }
+        .chat-row-avatar svg { width: 13px; height: 13px; fill: white; }
         .chat-msg {
-            max-width: 85%;
+            max-width: 80%;
             padding: 0.7rem 1rem;
-            border-radius: 12px;
-            font-size: 0.88rem;
-            line-height: 1.6;
+            border-radius: 14px;
+            font-size: 0.87rem;
+            line-height: 1.65;
         }
         .chat-msg.bot {
-            align-self: flex-start;
-            background: var(--light-gray);
+            background: #1c1c1e;
             color: #e5e7eb;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255,255,255,0.07);
             border-bottom-left-radius: 4px;
         }
         .chat-msg.user {
-            align-self: flex-end;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
             border-bottom-right-radius: 4px;
         }
-        .chat-msg.typing { color: var(--gray); font-style: italic; }
+        /* Animated typing dots */
+        .typing-dots {
+            display: inline-flex; gap: 4px; align-items: center; height: 1.2em;
+        }
+        .typing-dots span {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--secondary); opacity: 0.4;
+            animation: typingDot 1.2s ease-in-out infinite;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingDot {
+            0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1.2); }
+        }
+        /* Timestamp */
+        .chat-time {
+            font-size: 0.68rem; color: #4b5563;
+            text-align: center; margin: 0.25rem 0;
+        }
+        /* Input area */
+        .chat-input-wrapper {
+            padding: 0.75rem 1rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.2);
+        }
         .chat-input-row {
-            padding: 0.75rem 1rem;
-            border-top: 1px solid var(--border);
             display: flex;
             gap: 0.5rem;
+            align-items: center;
+            background: #1a1a1a;
+            border: 1.5px solid rgba(255,255,255,0.09);
+            border-radius: 12px;
+            padding: 0.4rem 0.4rem 0.4rem 0.75rem;
+            transition: border-color 0.25s;
         }
+        .chat-input-row:focus-within { border-color: var(--primary); }
         .chat-input-row input {
             flex: 1;
-            background: var(--dark);
-            border: 1.5px solid var(--border);
-            border-radius: 8px;
-            padding: 0.6rem 0.9rem;
+            background: transparent;
+            border: none;
             color: #e5e7eb;
             font-size: 0.88rem;
             font-family: inherit;
-            transition: border-color 0.25s;
+            outline: none;
+            padding: 0.3rem 0;
         }
-        .chat-input-row input:focus { outline: none; border-color: var(--primary); }
+        .chat-input-row input::placeholder { color: #4b5563; }
         .chat-send-btn {
-            width: 36px; height: 36px;
-            border-radius: 8px;
+            width: 34px; height: 34px;
+            border-radius: 9px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border: none;
             cursor: pointer;
             display: flex; align-items: center; justify-content: center;
             color: var(--white);
-            font-size: 0.9rem;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
             flex-shrink: 0;
         }
-        .chat-send-btn:hover { opacity: 0.85; }
-        .chat-send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .chat-send-btn:hover { transform: scale(1.08); }
+        .chat-send-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+        .chat-send-btn svg { width: 15px; height: 15px; fill: white; }
+        .chat-footer-note {
+            text-align: center; font-size: 0.68rem; color: #374151; margin-top: 0.5rem;
+        }
+        .chat-footer-note a { color: #4b5563; text-decoration: none; }
+        .chat-footer-note a:hover { color: var(--gray); }
+
     </style>
 </head>
 <body>
@@ -1570,11 +1823,11 @@
                 <span style="font-size: 1.8rem; font-weight: 700; color: var(--white);">Maxpri</span>
             </a>
             <ul class="nav-links">
+                <li><a href="https://products.maxpri.workers.dev">Products</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#why-us">Why Us</a></li>
-                <li><a href="#order">Order App</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#order">Order App</a></li
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -1595,16 +1848,48 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-aurora"></div>
         <div class="hero-content">
             <h1><span class="gradient-text">Custom Software Engineering</span> That Scales</h1>
             <p>We design, develop, and maintain high-performance applications engineered for long-term reliability and growth.</p>
 
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary ripple magnetic-btn">Start Your Project</a>
+                <a href="https://order.maxpri.workers.dev" class="btn btn-primary ripple magnetic-btn">Start Your Project</a>
                 <a href="#services" class="btn btn-secondary ripple magnetic-btn">Explore Services</a>
             </div>
         </div>
     </section>
+
+    <!-- Tech Stack Ticker -->
+    <div class="tech-ticker">
+        <div class="tech-ticker-inner">
+            <div class="tech-badge"><span>⚛️</span> React</div>
+            <div class="tech-badge"><span>🟦</span> TypeScript</div>
+            <div class="tech-badge"><span>🟩</span> Node.js</div>
+            <div class="tech-badge"><span>🐍</span> Python</div>
+            <div class="tech-badge"><span>☁️</span> AWS</div>
+            <div class="tech-badge"><span>🐳</span> Docker</div>
+            <div class="tech-badge"><span>🗄️</span> PostgreSQL</div>
+            <div class="tech-badge"><span>🍃</span> MongoDB</div>
+            <div class="tech-badge"><span>⚡</span> Cloudflare</div>
+            <div class="tech-badge"><span>🔷</span> Next.js</div>
+            <div class="tech-badge"><span>🦀</span> Rust</div>
+            <div class="tech-badge"><span>🐹</span> Go</div>
+            <!-- duplicate for seamless loop -->
+            <div class="tech-badge"><span>⚛️</span> React</div>
+            <div class="tech-badge"><span>🟦</span> TypeScript</div>
+            <div class="tech-badge"><span>🟩</span> Node.js</div>
+            <div class="tech-badge"><span>🐍</span> Python</div>
+            <div class="tech-badge"><span>☁️</span> AWS</div>
+            <div class="tech-badge"><span>🐳</span> Docker</div>
+            <div class="tech-badge"><span>🗄️</span> PostgreSQL</div>
+            <div class="tech-badge"><span>🍃</span> MongoDB</div>
+            <div class="tech-badge"><span>⚡</span> Cloudflare</div>
+            <div class="tech-badge"><span>🔷</span> Next.js</div>
+            <div class="tech-badge"><span>🦀</span> Rust</div>
+            <div class="tech-badge"><span>🐹</span> Go</div>
+        </div>
+    </div>
 
     <!-- Maxpri Valley Section -->
     <section class="valley-section">
@@ -1619,6 +1904,69 @@
                     Open VALLEY <span class="arrow">→</span>
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- Beta Section Preview Image -->
+<section style="padding: 0 2rem 4rem; background: var(--dark);">
+    <div style="
+        max-width: 1100px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    ">
+        <img
+            src="project-beta-command-center.svg"
+            alt="Project Beta AI Workspace Command "
+            style="
+                width: 100%;
+                display: block;
+                height: auto;
+            "
+        />
+        <div style="text-align:center; padding: 2rem 0;">
+    <a
+        href="https://beta.maxpri.workers.dev"
+        target="_blank"
+        style="
+            display:inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color:white;
+            text-decoration:none;
+            font-weight:700;
+            font-size:1rem;
+            border-radius:12px;
+            box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+            transition: all 0.3s ease;
+        "
+        onmouseover="this.style.transform='translateY(-3px)'"
+        onmouseout="this.style.transform='translateY(0)'"
+    >
+        Preview Beta Browser →
+    </a>
+</div>
+    </div>
+</section>
+
+
+    <!-- We Build Animation Section -->
+    <section class="we-build-section">
+        <div class="we-build-inner">
+            <span class="we-build-static">We Build</span>
+            <div class="we-build-carousel">
+                <div class="we-build-track">
+                    <span class="we-build-phrase">Custom Applications</span>
+                    <span class="we-build-phrase">Scalable Systems</span>
+                    <span class="we-build-phrase">Performance Solutions</span>
+                    <span class="we-build-phrase">Automation &amp; Tooling</span>
+                    <span class="we-build-phrase">Modernized Platforms</span>
+                    <span class="we-build-phrase">Reliable Software</span>
+                </div>
+            </div>
+            <span class="we-build-cursor"></span>
         </div>
     </section>
 
@@ -1766,59 +2114,11 @@
                 <div class="stat-label">Uptime Average</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">2–12wk</div>
+                <div class="stat-number">2-5 day</div>
                 <div class="stat-label">Delivery Timeline</div>
             </div>
         </div>
     </div>
-
-    <!-- Testimonials (new) -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header fade-in visible">
-                <h2>Trusted by Teams That Move Fast</h2>
-                <p>Engineering excellence meets practical business solutions</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testi-card fade-in visible">
-                    <div class="testi-stars">★★★★★</div>
-                    <div class="testi-quote-mark">"</div>
-                    <p class="testi-text">Maxpri delivered a system we couldn't have built in-house in twice the time. The architecture they designed has scaled seamlessly as our user base grew.</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar">JM</div>
-                        <div>
-                            <div class="testi-name">James Morrison</div>
-                            <div class="testi-role">CTO, FounderScale</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card fade-in visible">
-                    <div class="testi-stars">★★★★★</div>
-                    <div class="testi-quote-mark">"</div>
-                    <p class="testi-text">Our legacy platform was a nightmare. Maxpri modernized it without a single day of downtime. The codebase is night-and-day cleaner now.</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar">SL</div>
-                        <div>
-                            <div class="testi-name">Sara Lin</div>
-                            <div class="testi-role">Director of Engineering, Nexflow</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card fade-in visible">
-                    <div class="testi-stars">★★★★★</div>
-                    <div class="testi-quote-mark">"</div>
-                    <p class="testi-text">The automation tooling Maxpri built saved us 30+ hours per week. It just works. Their team understood our workflow better than we explained it.</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar">AK</div>
-                        <div>
-                            <div class="testi-name">Alex Kim</div>
-                            <div class="testi-role">Operations Lead, DataPilot</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -1888,191 +2188,13 @@
                 </div>
             </div>
 
-            <!-- Order Form -->
-            <div class="order-form-container fade-in visible">
-                <h3 style="color: var(--white); margin-bottom: 2rem; font-size: 1.8rem;">Project Details</h3>
-                <form id="orderForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required="" />
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required="" />
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required="" />
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required="" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="package">Selected Package *</label>
-                        <select id="package" name="package" required="" onchange="updatePrice()">
-                            <option value="" selected>Choose a package...</option>
-                            <option value="starter" data-price="170">Starter - $170</option>
-                            <option value="professional" data-price="360">Professional - $360</option>
-                            <option value="enterprise" data-price="550">Enterprise - $550</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="projectDescription">Project Description *</label>
-                        <textarea id="projectDescription" name="projectDescription" required="" placeholder="Tell us about your app idea, features needed, target users, etc."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="timeline">Desired Timeline</label>
-                        <select id="timeline" name="timeline">
-                            <option value="urgent" selected>ASAP (2-4 weeks)</option>
-                            <option value="normal">Standard (6-12 weeks)</option>
-                            <option value="flexible">Flexible (3+ months)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Payment Method *</label>
-                        <div class="payment-methods">
-                            <div class="payment-method" onclick="selectPayment(&#39;card&#39;, event)">
-                                <div class="payment-method-icon">💳</div>
-                                <div class="payment-method-name">Credit Card</div>
-                            </div>
-                            <div class="payment-method" onclick="selectPayment(&#39;paypal&#39;, event)">
-                                <div class="payment-method-icon">🅿️</div>
-                                <div class="payment-method-name">PayPal</div>
-                            </div>
-                            <div class="payment-method" onclick="selectPayment(&#39;crypto&#39;, event)">
-                                <div class="payment-method-icon">₿</div>
-                                <div class="payment-method-name">Crypto</div>
-                            </div>
-                            <div class="payment-method" onclick="selectPayment(&#39;wire&#39;, event)">
-                                <div class="payment-method-icon">🏦</div>
-                                <div class="payment-method-name">Wire Transfer</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="paymentMethod" name="paymentMethod" required="" />
-                    </div>
-
-                    <!-- Card Payment Details -->
-                    <div id="cardDetails" class="card-details">
-                        <div class="form-group">
-                            <label for="cardNumber">Card Number *</label>
-                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" />
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="cardExpiry">Expiry Date *</label>
-                                <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" />
-                            </div>
-                            <div class="form-group">
-                                <label for="cardCvv">CVV *</label>
-                                <input type="text" id="cardCvv" placeholder="123" maxlength="4" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="cardName">Cardholder Name *</label>
-                            <input type="text" id="cardName" placeholder="John Doe" />
-                        </div>
-                    </div>
-
-                    <!-- Order Summary -->
-                    <div class="order-summary">
-                        <h4>Order Summary</h4>
-                        <div class="summary-row">
-                            <span>Package:</span>
-                            <span id="summaryPackage">Not selected</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Deposit (30%):</span>
-                            <span id="summaryDeposit" class="price">$0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Remaining Balance:</span>
-                            <span id="summaryBalance" class="price">$0</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Total Project Cost:</span>
-                            <span id="summaryTotal" class="price">$0</span>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 2rem; padding: 1.25rem;">
-                        Pay Deposit &amp; Start Project
-                    </button>
-
-                    <p style="text-align: center; margin-top: 1rem; color: var(--gray); font-size: 0.9rem;">
-                        🔒 Secure payment processing. 30% deposit required to begin. Remaining balance due upon completion.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header fade-in visible">
-                <h2>Get In Touch</h2>
-                <p>Start your project with a conversation</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item fade-in visible">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h3>Email Us</h3>
-                            <p><a href="mailto:daniel.aronbabu.mailbox@gmail.com" style="color: var(--gray); text-decoration: none;">daniel.aronbabu.mailbox@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item fade-in visible">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h3>Call Us</h3>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item fade-in visible">
-                        <div class="contact-icon">🕒</div>
-                        <div>
-                            <h3>Business Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            <p>Saturday - Sunday: Closed</p>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form fade-in visible">
-                    <div class="form-group">
-                        <label for="contactName">Your Name</label>
-                        <input type="text" id="contactName" name="name" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label for="contactEmail">Email Address</label>
-                        <input type="email" id="contactEmail" name="email" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" name="message" required=""></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Confirmation Modal -->
+            <!-- Order CTA -->
+<div class="order-form-container fade-in visible" style="text-align:center;">
+  <h3 style="color: var(--white); margin-bottom: 1rem; font-size: 1.8rem;">Ready to place your order?</h3>
+  <p style="color: var(--gray); margin-bottom: 2rem;">Skip the form and head straight to checkout.</p>
+  <a href="https://order.maxpri.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary ripple magnetic-btn" style="display:inline-flex; align-items:center; justify-content:center; padding: 1.1rem 2.5rem; border-radius: 999px; font-size: 1.1rem; box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);">Order Now</a>
+</div>
+<!-- Order Confirmation Modal -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -2111,7 +2233,33 @@
             </div>
         </div>
     </div>
+    <!-- Final Contact Section -->
+    <section id="contact" class="contact-info-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Get In Touch</h2>
+                <p>Have a specific inquiry? Reach out to our engineering team directly.</p>
+            </div>
+            
+            <div class="contact-info-grid">
+                <!-- Email Card -->
+                <a href="mailto:maxpri.tech@gmail.com" class="contact-method-card fade-in">
+                    <div class="contact-method-icon">✉️</div>
+                    <h3>Email Us</h3>
+                    <p>maxpri.tech@gmail.com</p>
+                    <span>We usually respond within 24 hours</span>
+                </a>
 
+                <!-- Phone Card -->
+                <a href="tel:+15551234567" class="contact-method-card fade-in">
+                    <div class="contact-method-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p>+1 (330) 305-2588</p>
+                    <span>Mon - Fri, 9am - 6pm EST</span>
+                </a>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -2139,22 +2287,46 @@
     </footer>
 
     <!-- AI Chat Widget -->
-    <button id="chat-bubble" aria-label="Chat with Maxpri AI">🤖</button>
+    <button id="chat-bubble" aria-label="Chat with Maxpri AI">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2zm0 16c-1.1 0-2.16-.18-3.14-.51L6 18.5l.97-2.96C5.73 14.3 4 12.76 4 11c0-3.87 3.58-7 8-7s8 3.13 8 7-3.58 7-8 7z"/><circle cx="8.5" cy="11" r="1.25"/><circle cx="12" cy="11" r="1.25"/><circle cx="15.5" cy="11" r="1.25"/></svg>
+        <span id="chat-badge">1</span>
+    </button>
     <div id="chat-panel">
         <div class="chat-header">
-            <div class="chat-avatar">M</div>
-            <div>
-                <div class="chat-title">Maxpri Assistant</div>
-                <div class="chat-status">● Online — AI-powered</div>
+            <div class="chat-avatar">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>
             </div>
-            <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+            <div class="chat-header-info">
+                <div class="chat-title">Maxpri Assistant</div>
+                <div class="chat-status">Online — AI-powered support</div>
+            </div>
+            <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
         </div>
         <div class="chat-messages" id="chatMessages">
-            <div class="chat-msg bot">👋 Hi! I'm the Maxpri AI assistant. Ask me anything about our services, pricing, or how we can help your project.</div>
+            <div class="chat-time">Today</div>
+            <div class="chat-row">
+                <div class="chat-row-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>
+                </div>
+                <div class="chat-msg bot">Hi there! 👋 I'm the Maxpri AI assistant. I can help you explore our services, packages, and pricing — or answer any technical questions. What can I help you with today?</div>
+            </div>
         </div>
-        <div class="chat-input-row">
-            <input type="text" id="chatInput" placeholder="Ask anything about Maxpri…" onkeydown="if(event.key==='Enter')sendChat()" />
-            <button class="chat-send-btn" id="chatSendBtn" onclick="sendChat()">➤</button>
+        <div class="chat-chips" id="chatChips">
+            <div class="chat-chip" onclick="chipSend('What services do you offer?')">Services</div>
+            <div class="chat-chip" onclick="chipSend('Tell me about pricing')">Pricing</div>
+            <div class="chat-chip" onclick="chipSend('How long does a project take?')">Timeline</div>
+            <div class="chat-chip" onclick="chipSend('What is Maxpri Valley?')">Maxpri Valley</div>
+        </div>
+        <div class="chat-input-wrapper">
+            <div class="chat-input-row">
+                <input type="text" id="chatInput" placeholder="Ask me anything…" onkeydown="if(event.key==='Enter')sendChat()" autocomplete="off" />
+                <button class="chat-send-btn" id="chatSendBtn" onclick="sendChat()" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+            <div class="chat-footer-note">Powered by <a href="https://anthropic.com" target="_blank" rel="noopener">Claude AI</a> · Maxpri Technologies</div>
         </div>
     </div>
 
@@ -2283,20 +2455,6 @@
             });
         }
 
-        // ===== INITIALIZE ALL EFFECTS =====
-        window.addEventListener('DOMContentLoaded', function () {
-            createParticles();
-            animateCounters();
-            addTiltEffect();
-            addMagneticEffect();
-
-            document.addEventListener('mousemove', createCursorTrail);
-            window.addEventListener('scroll', updateProgressBar);
-
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-            loadUsedCodes();
-        });
-
         // ===== FADE-IN OBSERVER =====
         const observerOptions = {
             threshold: 0.1,
@@ -2311,29 +2469,52 @@
             });
         }, observerOptions);
 
-        // ===== CONTACT FORM =====
-        document.querySelector('.contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you shortly.');
-            this.reset();
+        // ===== INITIALIZE ALL EFFECTS =====
+        window.addEventListener('DOMContentLoaded', function () {
+            createParticles();
+            animateCounters();
+            addTiltEffect();
+            addMagneticEffect();
+
+            document.addEventListener('mousemove', createCursorTrail);
+            window.addEventListener('scroll', updateProgressBar);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            loadUsedCodes();
+
+            // Chat bubble
+            initChat();
+            document.getElementById('chat-bubble').addEventListener('click', toggleChat);
         });
+
+        // ===== CONTACT FORM =====
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you shortly.');
+                this.reset();
+            });
+        }
 
         // ===== MOBILE MENU (DRAWER) =====
         const mobileMenu = document.querySelector('.mobile-menu');
         const mobileDrawer = document.getElementById('mobileDrawer');
 
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            mobileDrawer.classList.toggle('open');
-            document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
-        });
-        document.querySelectorAll('.drawer-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                mobileDrawer.classList.remove('open');
-                document.body.style.overflow = '';
+        if (mobileMenu && mobileDrawer) {
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                mobileDrawer.classList.toggle('open');
+                document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
             });
-        });
+            document.querySelectorAll('.drawer-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileDrawer.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
 
         // ===== ORDER FORM FUNCTIONS =====
         let selectedPaymentMethod = '';
@@ -2511,26 +2692,58 @@
         });
         // ===== AI CHAT WIDGET =====
         let chatOpen = false;
-        const chatPanel = document.getElementById('chat-panel');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const chatSendBtn = document.getElementById('chatSendBtn');
+        let chatPanel, chatMessages, chatInput, chatSendBtn, chatBadge;
 
-        document.getElementById('chat-bubble').addEventListener('click', toggleChat);
+        function initChat() {
+            chatPanel = document.getElementById('chat-panel');
+            chatMessages = document.getElementById('chatMessages');
+            chatInput = document.getElementById('chatInput');
+            chatSendBtn = document.getElementById('chatSendBtn');
+            chatBadge = document.getElementById('chat-badge');
+        }
 
         function toggleChat() {
+            if (!chatPanel) initChat();
             chatOpen = !chatOpen;
             chatPanel.classList.toggle('open', chatOpen);
-            if (chatOpen) chatInput.focus();
+            if (chatOpen) {
+                chatInput.focus();
+                if (chatBadge) chatBadge.classList.add('hidden');
+            }
         }
 
         function addChatMsg(text, type) {
+            const isBot = type === 'bot' || type === 'bot typing';
+            const row = document.createElement('div');
+            row.className = 'chat-row' + (isBot ? '' : ' user');
+
+            if (isBot) {
+                const av = document.createElement('div');
+                av.className = 'chat-row-avatar';
+                av.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>';
+                row.appendChild(av);
+            }
+
             const d = document.createElement('div');
-            d.className = 'chat-msg ' + type;
-            d.textContent = text;
-            chatMessages.appendChild(d);
+            d.className = 'chat-msg ' + (isBot ? 'bot' : 'user');
+
+            if (type === 'bot typing') {
+                d.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+            } else {
+                d.textContent = text;
+            }
+            row.appendChild(d);
+            chatMessages.appendChild(row);
             chatMessages.scrollTop = chatMessages.scrollHeight;
-            return d;
+            return row;
+        }
+
+        function chipSend(text) {
+            // Hide chips after first use
+            const chips = document.getElementById('chatChips');
+            if (chips) chips.style.display = 'none';
+            chatInput.value = text;
+            sendChat();
         }
 
         async function sendChat() {
@@ -2538,10 +2751,15 @@
             if (!text) return;
             chatInput.value = '';
             chatSendBtn.disabled = true;
+
+            // Hide quick chips after first message
+            const chips = document.getElementById('chatChips');
+            if (chips) chips.style.display = 'none';
+
             addChatMsg(text, 'user');
-            const typing = addChatMsg('Typing…', 'bot typing');
+            const typingRow = addChatMsg('', 'bot typing');
             try {
-                const res = await fetch('https://api.anthropic.com/v1/messages', {
+                const res = await fetch('https://geminiapi.maxpri.workers.dev', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -2553,15 +2771,16 @@
                 });
                 const data = await res.json();
                 const reply = data.content?.find(b => b.type === 'text')?.text || 'Sorry, I couldn\'t get a response right now. Email us at daniel.aronbabu.mailbox@gmail.com!';
-                typing.remove();
+                typingRow.remove();
                 addChatMsg(reply, 'bot');
             } catch {
-                typing.remove();
+                typingRow.remove();
                 addChatMsg('Connection issue. Email us at daniel.aronbabu.mailbox@gmail.com!', 'bot');
             }
             chatSendBtn.disabled = false;
             chatInput.focus();
         }
+        // ===== WE BUILD ANIMATION =====
 
 </script>
 
