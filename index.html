@@ -1,0 +1,2787 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maxpri Technologies</title>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "INC",
+    "name": "Maxpri Technologies",
+    "alternateName": "Maxpri INC",
+    "url": "https://www.maxpri.workers.dev/",
+    "logo": "https://www.maxpri.workers.dev/logo.png"
+    }
+    
+    </script>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="google-site-verification" content="14PfBOkrCesIoQpfcg3j8bIzPxAFi1oicPl-r1lbe64" />
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("DuL1BMXa7eKGly4wK");
+        })();
+    </script>
+    <meta charset="utf-8">
+    <style>
+        /* New Contact Details Section */
+        .contact-info-section {
+            padding: 6rem 2rem;
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-method-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-method-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.05) 100%);
+        }
+
+        .contact-method-icon {
+            font-size: 2.5rem;
+            width: 70px;
+            height: 70px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method-card:hover .contact-method-icon {
+            transform: scale(1.1);
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-method-card h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method-card p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .contact-method-card span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #06b6d4;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --card-bg: #141414;
+            --gray: #9ca3af;
+            --light-gray: #1f1f1f;
+            --white: #ffffff;
+            --border: #2a2a2a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            overflow-x: hidden;
+            background: var(--dark);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="%230ea5e9" opacity="0.1"/></svg>');
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: #9ca3af;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Maxpri Valley Standalone Section */
+        .valley-section {
+            padding: 5rem 2rem;
+            background: var(--dark);
+            position: relative;
+        }
+
+        .valley-section .valley-announcement {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(6, 182, 212, 0.18) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            margin: 0 auto;
+            max-width: 950px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .valley-section .valley-announcement::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 40%);
+            pointer-events: none;
+        }
+
+        .valley-section .valley-announcement h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+            text-transform: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .valley-section .valley-subtitle {
+            font-size: 1.15rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .valley-description {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .valley-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.4);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .valley-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(37, 99, 235, 0.6);
+        }
+
+        .valley-btn .arrow {
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+
+        .valley-btn:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--darker);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .service-card:hover::before {
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 6rem 2rem;
+            background: var(--dark);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .process-step p {
+            color: var(--gray);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 6rem 2rem;
+            background: var(--darker);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .feature-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--dark);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Order Section */
+        .order-section {
+            padding: 6rem 2rem;
+            background: var(--darker);
+        }
+
+        .order-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.05) 100%);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price span {
+            font-size: 1.2rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .pricing-card .description {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .order-form-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .payment-method {
+            background: var(--dark);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .payment-method-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-method-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .card-details {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--dark);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .card-details.active {
+            display: block;
+        }
+
+        .order-summary {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .order-summary h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+
+        .summary-row .price {
+            color: var(--primary);
+        }
+
+        /* Order Confirmation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.4s;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .confirmation-code {
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .confirmation-code label {
+            display: block;
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .confirmation-code .code {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
+            user-select: all;
+            margin: 0.5rem 0;
+        }
+
+        .code-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .code-warning .warning-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-warning p {
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .code-warning ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .code-warning ul li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .code-warning ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #ffd700;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .modal-actions button {
+            flex: 1;
+        }
+
+        .btn-copy {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-copy:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-close {
+            background: var(--dark);
+            border: 2px solid var(--border);
+        }
+
+        .btn-close:hover {
+            border-color: var(--primary);
+        }
+
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Cursor Trail */
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Extra FX */
+        .glow-on-hover {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-on-hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .glow-on-hover:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s, opacity 0.6s;
+            opacity: 0;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+            transition: 0s;
+        }
+
+        .float-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+                transform: scale(1.05);
+            }
+        }
+
+        .magnetic-btn {
+            transition: transform 0.2s ease-out;
+        }
+
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--border);
+            position: fixed;
+            top: 70px;
+            left: 0;
+            z-index: 999;
+            width: 100%;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .interactive-card {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .interactive-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            background: linear-gradient(135deg,
+                rgba(59, 130, 246, 0.1) 0%,
+                rgba(6, 182, 212, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .interactive-card:hover::before {
+            opacity: 1;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tech Stack Ticker */
+        .tech-ticker {
+            overflow: hidden;
+            background: var(--darker);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .tech-ticker-inner {
+            display: flex;
+            gap: 3rem;
+            animation: tickerScroll 30s linear infinite;
+            width: max-content;
+        }
+        .tech-ticker-inner:hover { animation-play-state: paused; }
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .tech-badge {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: #6b7280; font-size: 0.85rem; font-weight: 600;
+            white-space: nowrap; letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+        .tech-badge:hover { color: var(--secondary); }
+        .tech-badge span { font-size: 1.1rem; }
+
+        /* Hero aurora glow */
+        .hero-aurora {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 100%, rgba(37,99,235,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 20% 50%, rgba(6,182,212,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 30% at 80% 30%, rgba(59,130,246,0.08) 0%, transparent 60%);
+            pointer-events: none;
+            animation: auroraShift 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraShift {
+            0% { opacity: 0.7; transform: scale(1) translateY(0); }
+            100% { opacity: 1; transform: scale(1.05) translateY(-10px); }
+        }
+
+        /* Animated counter */
+        .stat-number.counting { opacity: 1; }
+
+        /* ===== We Build Animation Section ===== */
+        .we-build-section {
+            padding: 6rem 2rem;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .we-build-inner {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .we-build-static {
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            white-space: nowrap;
+        }
+        .we-build-carousel {
+            overflow: hidden;
+            /* height = exactly one phrase line */
+            height: 1.15em;
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            position: relative;
+        }
+        .we-build-track {
+            display: flex;
+            flex-direction: column;
+            /* 6 phrases × 2.5s each = 15s total */
+            animation: weBuildScroll 15s steps(1, end) infinite;
+        }
+        /* Each phrase takes up exactly 1.15em */
+        .we-build-phrase {
+            display: block;
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            height: 1.15em;
+            white-space: nowrap;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), #a78bfa, var(--primary));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: phraseGradient 4s linear infinite;
+        }
+        /* Step through all 6 phrases — each step = 1/6 of 100% height of the track */
+        @keyframes weBuildScroll {
+            0%        { transform: translateY(0); }
+            16.666%   { transform: translateY(-16.666%); }
+            33.333%   { transform: translateY(-33.333%); }
+            50%       { transform: translateY(-50%); }
+            66.666%   { transform: translateY(-66.666%); }
+            83.333%   { transform: translateY(-83.333%); }
+            100%      { transform: translateY(0); }
+        }
+        @keyframes phraseGradient {
+            0%   { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+        /* Blinking cursor */
+        .we-build-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.85em;
+            background: var(--secondary);
+            margin-left: 0.15em;
+            vertical-align: middle;
+            animation: cursorBlink 1s step-end infinite;
+            border-radius: 2px;
+            flex-shrink: 0;
+            align-self: center;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        /* Message pop animation */
+        @keyframes msgPop {
+            from { opacity: 0; transform: translateY(8px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .chat-row { animation: msgPop 0.25s ease-out; }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card .price {
+                font-size: 2.5rem;
+            }
+
+            .valley-section .valley-announcement {
+                padding: 2rem 1.5rem;
+            }
+
+            .valley-section .valley-announcement h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* =============================================
+           NEW ADDITIONS — visual refresh & features
+           ============================================= */
+
+        /* Mobile full-screen drawer (replaces broken toggle) */
+        .mobile-drawer {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(18px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .mobile-drawer.open {
+            transform: translateX(0);
+        }
+        .mobile-drawer a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s, transform 0.4s, color 0.2s;
+        }
+        .mobile-drawer.open a { opacity: 1; transform: translateY(0); }
+        .mobile-drawer.open a:nth-child(1) { transition-delay: 0.08s; }
+        .mobile-drawer.open a:nth-child(2) { transition-delay: 0.13s; }
+        .mobile-drawer.open a:nth-child(3) { transition-delay: 0.18s; }
+        .mobile-drawer.open a:nth-child(4) { transition-delay: 0.23s; }
+        .mobile-drawer.open a:nth-child(5) { transition-delay: 0.28s; }
+        .mobile-drawer a:hover { color: var(--secondary); }
+        @media (max-width: 768px) {
+            .mobile-drawer { display: flex; }
+            .mobile-menu span.ham-open-1, .mobile-menu span.ham-open-2, .mobile-menu span.ham-open-3 { }
+            .mobile-menu.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .mobile-menu.open span:nth-child(2) { opacity: 0; }
+            .mobile-menu.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* Stats Strip (new section) */
+        .stats-strip {
+            padding: 3.5rem 2rem;
+            background: var(--darker);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+        .stats-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== AI Chat Widget — Professional Redesign ===== */
+        #chat-bubble {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 28px rgba(59, 130, 246, 0.55);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: fixed;
+        }
+        #chat-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 14px 38px rgba(59, 130, 246, 0.7);
+        }
+        #chat-bubble svg { width: 28px; height: 28px; fill: white; pointer-events: none; }
+        #chat-bubble span { pointer-events: none; }
+        /* Unread badge */
+        #chat-badge {
+            position: absolute;
+            top: -3px; right: -3px;
+            width: 18px; height: 18px;
+            background: #ef4444;
+            border-radius: 50%;
+            border: 2px solid var(--dark);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.65rem; font-weight: 700; color: white;
+            animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #chat-badge.hidden { display: none; }
+        @keyframes badgePop {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+        #chat-panel {
+            position: fixed;
+            bottom: 5.5rem;
+            right: 2rem;
+            z-index: 9998;
+            width: min(400px, calc(100vw - 2rem));
+            background: #0f0f0f;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255,255,255,0.04);
+            display: flex;
+            flex-direction: column;
+            max-height: 580px;
+            transform: scale(0.92) translateY(24px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #chat-panel.open {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        .chat-header {
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(6, 182, 212, 0.15) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        .chat-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
+        }
+        .chat-avatar svg { width: 20px; height: 20px; fill: white; }
+        .chat-header-info { flex: 1; min-width: 0; }
+        .chat-title { color: var(--white); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.01em; }
+        .chat-status {
+            color: #34d399;
+            font-size: 0.72rem;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+        .chat-status::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: #34d399;
+            border-radius: 50%;
+            display: inline-block;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .chat-close-btn {
+            cursor: pointer; color: #6b7280; font-size: 1.1rem;
+            background: rgba(255,255,255,0.07); border: none;
+            border-radius: 8px; width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; flex-shrink: 0;
+        }
+        .chat-close-btn:hover { color: var(--white); background: rgba(255,255,255,0.13); }
+        /* Quick reply chips */
+        .chat-chips {
+            padding: 0.6rem 1rem 0;
+            display: flex; gap: 0.5rem; flex-wrap: wrap;
+        }
+        .chat-chip {
+            background: rgba(59,130,246,0.12);
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 999px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.76rem; color: #93c5fd;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .chat-chip:hover {
+            background: rgba(59,130,246,0.25);
+            border-color: var(--primary);
+            color: white;
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            max-height: 380px;
+        }
+        .chat-messages::-webkit-scrollbar { width: 3px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+        /* Message row wrapper */
+        .chat-row { display: flex; gap: 0.5rem; align-items: flex-end; }
+        .chat-row.user { flex-direction: row-reverse; }
+        .chat-row-avatar {
+            width: 26px; height: 26px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 0.7rem;
+        }
+        .chat-row-avatar svg { width: 13px; height: 13px; fill: white; }
+        .chat-msg {
+            max-width: 80%;
+            padding: 0.7rem 1rem;
+            border-radius: 14px;
+            font-size: 0.87rem;
+            line-height: 1.65;
+        }
+        .chat-msg.bot {
+            background: #1c1c1e;
+            color: #e5e7eb;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-bottom-left-radius: 4px;
+        }
+        .chat-msg.user {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-bottom-right-radius: 4px;
+        }
+        /* Animated typing dots */
+        .typing-dots {
+            display: inline-flex; gap: 4px; align-items: center; height: 1.2em;
+        }
+        .typing-dots span {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--secondary); opacity: 0.4;
+            animation: typingDot 1.2s ease-in-out infinite;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingDot {
+            0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1.2); }
+        }
+        /* Timestamp */
+        .chat-time {
+            font-size: 0.68rem; color: #4b5563;
+            text-align: center; margin: 0.25rem 0;
+        }
+        /* Input area */
+        .chat-input-wrapper {
+            padding: 0.75rem 1rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.2);
+        }
+        .chat-input-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            background: #1a1a1a;
+            border: 1.5px solid rgba(255,255,255,0.09);
+            border-radius: 12px;
+            padding: 0.4rem 0.4rem 0.4rem 0.75rem;
+            transition: border-color 0.25s;
+        }
+        .chat-input-row:focus-within { border-color: var(--primary); }
+        .chat-input-row input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #e5e7eb;
+            font-size: 0.88rem;
+            font-family: inherit;
+            outline: none;
+            padding: 0.3rem 0;
+        }
+        .chat-input-row input::placeholder { color: #4b5563; }
+        .chat-send-btn {
+            width: 34px; height: 34px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .chat-send-btn:hover { transform: scale(1.08); }
+        .chat-send-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+        .chat-send-btn svg { width: 15px; height: 15px; fill: white; }
+        .chat-footer-note {
+            text-align: center; font-size: 0.68rem; color: #374151; margin-top: 0.5rem;
+        }
+        .chat-footer-note a { color: #4b5563; text-decoration: none; }
+        .chat-footer-note a:hover { color: var(--gray); }
+
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"><div class="particle" style="left: 63.9302%; animation-delay: 8.91596s; animation-duration: 10.8337s;"></div><div class="particle" style="left: 39.3532%; animation-delay: 14.3676s; animation-duration: 13.9915s;"></div><div class="particle" style="left: 99.4129%; animation-delay: 7.88869s; animation-duration: 10.8149s;"></div><div class="particle" style="left: 80.5754%; animation-delay: 12.2867s; animation-duration: 14.1383s;"></div><div class="particle" style="left: 11.452%; animation-delay: 14.594s; animation-duration: 14.5651s;"></div><div class="particle" style="left: 31.771%; animation-delay: 13.7901s; animation-duration: 17.4007s;"></div><div class="particle" style="left: 7.10784%; animation-delay: 12.7071s; animation-duration: 15.0456s;"></div><div class="particle" style="left: 47.3333%; animation-delay: 6.05889s; animation-duration: 11.7992s;"></div><div class="particle" style="left: 1.59556%; animation-delay: 12.7574s; animation-duration: 15.6912s;"></div><div class="particle" style="left: 63.8663%; animation-delay: 10.3391s; animation-duration: 10.2074s;"></div><div class="particle" style="left: 83.2889%; animation-delay: 14.7813s; animation-duration: 13.1325s;"></div><div class="particle" style="left: 43.4742%; animation-delay: 14.0276s; animation-duration: 16.5821s;"></div><div class="particle" style="left: 98.3956%; animation-delay: 6.75484s; animation-duration: 19.6968s;"></div><div class="particle" style="left: 83.2634%; animation-delay: 7.97214s; animation-duration: 17.07s;"></div><div class="particle" style="left: 29.467%; animation-delay: 9.86583s; animation-duration: 18.7545s;"></div><div class="particle" style="left: 72.0369%; animation-delay: 11.7884s; animation-duration: 14.4063s;"></div><div class="particle" style="left: 67.4609%; animation-delay: 0.60888s; animation-duration: 18.3988s;"></div><div class="particle" style="left: 79.1838%; animation-delay: 10.3979s; animation-duration: 18.8878s;"></div><div class="particle" style="left: 4.57556%; animation-delay: 5.13755s; animation-duration: 16.1432s;"></div><div class="particle" style="left: 24.3736%; animation-delay: 2.9151s; animation-duration: 16.018s;"></div><div class="particle" style="left: 68.1917%; animation-delay: 13.4823s; animation-duration: 15.9094s;"></div><div class="particle" style="left: 57.0056%; animation-delay: 3.77072s; animation-duration: 18.4709s;"></div><div class="particle" style="left: 61.2243%; animation-delay: 13.1846s; animation-duration: 16.5001s;"></div><div class="particle" style="left: 5.4922%; animation-delay: 2.14911s; animation-duration: 17.951s;"></div><div class="particle" style="left: 85.101%; animation-delay: 9.75089s; animation-duration: 16.0432s;"></div><div class="particle" style="left: 63.7805%; animation-delay: 3.86412s; animation-duration: 18.3463s;"></div><div class="particle" style="left: 98.0297%; animation-delay: 13.2017s; animation-duration: 11.7586s;"></div><div class="particle" style="left: 45.9989%; animation-delay: 8.47367s; animation-duration: 17.4589s;"></div><div class="particle" style="left: 96.2077%; animation-delay: 10.0751s; animation-duration: 19.3311s;"></div><div class="particle" style="left: 33.0538%; animation-delay: 9.29111s; animation-duration: 16.9352s;"></div><div class="particle" style="left: 19.4238%; animation-delay: 8.90314s; animation-duration: 13.3518s;"></div><div class="particle" style="left: 24.7146%; animation-delay: 1.04002s; animation-duration: 16.8562s;"></div><div class="particle" style="left: 79.9262%; animation-delay: 0.568804s; animation-duration: 19.0237s;"></div><div class="particle" style="left: 21.702%; animation-delay: 10.9764s; animation-duration: 14.5424s;"></div><div class="particle" style="left: 77.4722%; animation-delay: 0.14148s; animation-duration: 12.1593s;"></div><div class="particle" style="left: 82.3302%; animation-delay: 9.36702s; animation-duration: 14.7682s;"></div><div class="particle" style="left: 84.0462%; animation-delay: 0.164154s; animation-duration: 10.3884s;"></div><div class="particle" style="left: 66.4028%; animation-delay: 11.2838s; animation-duration: 14.1739s;"></div><div class="particle" style="left: 77.2877%; animation-delay: 12.0983s; animation-duration: 19.1187s;"></div><div class="particle" style="left: 53.2037%; animation-delay: 4.90362s; animation-duration: 14.125s;"></div><div class="particle" style="left: 77.4432%; animation-delay: 8.75421s; animation-duration: 10.6344s;"></div><div class="particle" style="left: 89.1122%; animation-delay: 8.05452s; animation-duration: 19.4253s;"></div><div class="particle" style="left: 54.5653%; animation-delay: 10.8714s; animation-duration: 17.7747s;"></div><div class="particle" style="left: 95.1674%; animation-delay: 14.2874s; animation-duration: 17.1869s;"></div><div class="particle" style="left: 99.4944%; animation-delay: 13.1049s; animation-duration: 14.2427s;"></div><div class="particle" style="left: 70.7184%; animation-delay: 14.1899s; animation-duration: 10.0909s;"></div><div class="particle" style="left: 38.7381%; animation-delay: 12.4165s; animation-duration: 11.0491s;"></div><div class="particle" style="left: 6.80998%; animation-delay: 7.63762s; animation-duration: 17.2139s;"></div><div class="particle" style="left: 72.7917%; animation-delay: 12.4832s; animation-duration: 13.7894s;"></div><div class="particle" style="left: 69.0794%; animation-delay: 9.97106s; animation-duration: 10.8738s;"></div></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="maxpri-logo.png" alt="Maxpri Logo" style="height: 45px; width: auto; margin-right: 12px;" />
+                <span style="font-size: 1.8rem; font-weight: 700; color: var(--white);">Maxpri</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="https://products.maxpri.workers.dev">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#order">Order App</a></li
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#services" class="drawer-link">Services</a>
+        <a href="#process" class="drawer-link">Process</a>
+        <a href="#why-us" class="drawer-link">Why Us</a>
+        <a href="#order" class="drawer-link">Order App</a>
+        <a href="#contact" class="drawer-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-aurora"></div>
+        <div class="hero-content">
+            <h1><span class="gradient-text">Custom Software Engineering</span> That Scales</h1>
+            <p>We design, develop, and maintain high-performance applications engineered for long-term reliability and growth.</p>
+
+            <div class="cta-buttons">
+                <a href="https://order.maxpri.workers.dev" class="btn btn-primary ripple magnetic-btn">Start Your Project</a>
+                <a href="#services" class="btn btn-secondary ripple magnetic-btn">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Ticker -->
+    <div class="tech-ticker">
+        <div class="tech-ticker-inner">
+            <div class="tech-badge"><span>⚛️</span> React</div>
+            <div class="tech-badge"><span>🟦</span> TypeScript</div>
+            <div class="tech-badge"><span>🟩</span> Node.js</div>
+            <div class="tech-badge"><span>🐍</span> Python</div>
+            <div class="tech-badge"><span>☁️</span> AWS</div>
+            <div class="tech-badge"><span>🐳</span> Docker</div>
+            <div class="tech-badge"><span>🗄️</span> PostgreSQL</div>
+            <div class="tech-badge"><span>🍃</span> MongoDB</div>
+            <div class="tech-badge"><span>⚡</span> Cloudflare</div>
+            <div class="tech-badge"><span>🔷</span> Next.js</div>
+            <div class="tech-badge"><span>🦀</span> Rust</div>
+            <div class="tech-badge"><span>🐹</span> Go</div>
+            <!-- duplicate for seamless loop -->
+            <div class="tech-badge"><span>⚛️</span> React</div>
+            <div class="tech-badge"><span>🟦</span> TypeScript</div>
+            <div class="tech-badge"><span>🟩</span> Node.js</div>
+            <div class="tech-badge"><span>🐍</span> Python</div>
+            <div class="tech-badge"><span>☁️</span> AWS</div>
+            <div class="tech-badge"><span>🐳</span> Docker</div>
+            <div class="tech-badge"><span>🗄️</span> PostgreSQL</div>
+            <div class="tech-badge"><span>🍃</span> MongoDB</div>
+            <div class="tech-badge"><span>⚡</span> Cloudflare</div>
+            <div class="tech-badge"><span>🔷</span> Next.js</div>
+            <div class="tech-badge"><span>🦀</span> Rust</div>
+            <div class="tech-badge"><span>🐹</span> Go</div>
+        </div>
+    </div>
+
+    <!-- Maxpri Valley Section -->
+    <section class="valley-section">
+        <div class="container">
+            <div class="valley-announcement fade-in visible">
+                <h3>Introducing Maxpri VALLEY</h3>
+                <p class="valley-subtitle">The Operating System for Modern Business</p>
+                <p class="valley-description">
+                    Maxpri Valley is an all-in-one AI workspace for business.
+                </p>
+                <a href="https://valley.maxpri.workers.dev/" class="valley-btn" target="_blank">
+                    Open VALLEY <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beta Section Preview Image -->
+<section style="padding: 0 2rem 4rem; background: var(--dark);">
+    <div style="
+        max-width: 1100px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    ">
+        <img
+            src="project-beta-command-center.svg"
+            alt="Project Beta AI Workspace Command "
+            style="
+                width: 100%;
+                display: block;
+                height: auto;
+            "
+        />
+        <div style="text-align:center; padding: 2rem 0;">
+    <a
+        href="https://beta.maxpri.workers.dev"
+        target="_blank"
+        style="
+            display:inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color:white;
+            text-decoration:none;
+            font-weight:700;
+            font-size:1rem;
+            border-radius:12px;
+            box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+            transition: all 0.3s ease;
+        "
+        onmouseover="this.style.transform='translateY(-3px)'"
+        onmouseout="this.style.transform='translateY(0)'"
+    >
+        Preview Beta Browser →
+    </a>
+</div>
+    </div>
+</section>
+
+
+    <!-- We Build Animation Section -->
+    <section class="we-build-section">
+        <div class="we-build-inner">
+            <span class="we-build-static">We Build</span>
+            <div class="we-build-carousel">
+                <div class="we-build-track">
+                    <span class="we-build-phrase">Custom Applications</span>
+                    <span class="we-build-phrase">Scalable Systems</span>
+                    <span class="we-build-phrase">Performance Solutions</span>
+                    <span class="we-build-phrase">Automation &amp; Tooling</span>
+                    <span class="we-build-phrase">Modernized Platforms</span>
+                    <span class="we-build-phrase">Reliable Software</span>
+                </div>
+            </div>
+            <span class="we-build-cursor"></span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in visible">
+                <h2>What We Build</h2>
+                <p>From concept to deployment, we create scalable applications tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in tilt-card interactive-card glow-on-hover visible">
+                    <div class="service-icon float-animation">📱</div>
+                    <h3>Custom Application Development</h3>
+                    <p>Tailored software solutions built from the ground up to match your unique business requirements, workflows, and objectives.</p>
+                </div>
+                <div class="service-card fade-in tilt-card interactive-card glow-on-hover visible">
+                    <div class="service-icon float-animation">🏗️</div>
+                    <h3>System Architecture &amp; Design</h3>
+                    <p>Robust architectural planning ensuring your applications are scalable, maintainable, and built for long-term success.</p>
+                </div>
+                <div class="service-card fade-in tilt-card interactive-card glow-on-hover visible">
+                    <div class="service-icon float-animation">⚡</div>
+                    <h3>Performance Optimization</h3>
+                    <p>Fine-tuned systems that run smoothly under varying workloads while maintaining efficiency and reliability.</p>
+                </div>
+                <div class="service-card fade-in tilt-card interactive-card glow-on-hover visible">
+                    <div class="service-icon float-animation">🔧</div>
+                    <h3>Automation &amp; Tooling</h3>
+                    <p>Intelligent automation solutions that streamline repetitive processes and improve operational efficiency.</p>
+                </div>
+                <div class="service-card fade-in tilt-card interactive-card glow-on-hover visible">
+                    <div class="service-icon float-animation">🔄</div>
+                    <h3>Legacy System Modernization</h3>
+                    <p>Transform outdated systems into modern, efficient applications without losing critical functionality.</p>
+                </div>
+                <div class="service-card fade-in tilt-card interactive-card glow-on-hover visible">
+                    <div class="service-icon float-animation">🛠️</div>
+                    <h3>Maintenance &amp; Support</h3>
+                    <p>Ongoing technical support and system maintenance to keep your applications running at peak performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header fade-in visible">
+                <h2>Our Development Process</h2>
+                <p>A structured approach to delivering exceptional software</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in visible">
+                    <div class="step-number">1</div>
+                    <h3>Discovery &amp; Planning</h3>
+                    <p>We analyze your requirements, objectives, and technical needs to create a comprehensive development roadmap.</p>
+                </div>
+                <div class="process-step fade-in visible">
+                    <div class="step-number">2</div>
+                    <h3>Architecture Design</h3>
+                    <p>Strategic system design with focus on scalability, security, and maintainability from day one.</p>
+                </div>
+                <div class="process-step fade-in visible">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Clean code implementation following best practices, with regular testing and quality assurance.</p>
+                </div>
+                <div class="process-step fade-in visible">
+                    <div class="step-number">4</div>
+                    <h3>Deployment &amp; Beyond</h3>
+                    <p>Smooth launch with ongoing support, monitoring, and optimization to ensure continued success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="why-choose">
+        <div class="container">
+            <div class="section-header fade-in visible">
+                <h2>Why Choose Maxpri</h2>
+                <p>Engineering excellence meets practical business solutions</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in visible">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-content">
+                        <h3>Systems-First Mindset</h3>
+                        <p>We build engineered systems designed for long-term performance, not temporary fixes.</p>
+                    </div>
+                </div>
+                <div class="feature fade-in visible">
+                    <div class="feature-icon">📐</div>
+                    <div class="feature-content">
+                        <h3>Clean Code Principles</h3>
+                        <p>Modular, maintainable code that scales with your business and adapts to future needs.</p>
+                    </div>
+                </div>
+                <div class="feature fade-in visible">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h3>Security First</h3>
+                        <p>Security and maintainability are foundational requirements in every project we deliver.</p>
+                    </div>
+                </div>
+                <div class="feature fade-in visible">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h3>Reduced Technical Debt</h3>
+                        <p>Systematic debugging and structured workflows that keep systems stable as they grow.</p>
+                    </div>
+                </div>
+                <div class="feature fade-in visible">
+                    <div class="feature-icon">⚙️</div>
+                    <div class="feature-content">
+                        <h3>Intelligent Automation</h3>
+                        <p>Streamlined processes through smart tooling that improves efficiency and minimizes errors.</p>
+                    </div>
+                </div>
+                <div class="feature fade-in visible">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-content">
+                        <h3>Built to Scale</h3>
+                        <p>Every application is engineered to handle growth and perform under increasing demand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Strip (new) -->
+    <div class="stats-strip fade-in visible">
+        <div class="stats-strip-inner">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Applications Shipped</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Service Tiers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Uptime Average</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2-5 day</div>
+                <div class="stat-label">Delivery Timeline</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Something Great?</h2>
+            <p>Let&#39;s engineer a solution that drives your business forward</p>
+            <a href="#contact" class="btn btn-secondary">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order-section">
+        <div class="order-container">
+            <div class="section-header fade-in visible">
+                <h2>Order Your Custom App</h2>
+                <p>Choose a package that fits your needs or contact us for a custom quote</p>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-cards">
+                <div class="pricing-card fade-in tilt-card visible">
+                    <h3>Starter</h3>
+                    <div class="price counter" data-target="170">$550</div>
+                    <p class="description">Perfect for small businesses and MVPs</p>
+                    <ul class="pricing-features">
+                        <li>Simple web or mobile app</li>
+                        <li>Basic user authentication</li>
+                        <li>Database integration</li>
+                        <li>Responsive design</li>
+                        <li>3 months support</li>
+                        <li>2-4 week delivery</li>
+                    </ul>
+                    <button class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;starter&#39;, 170)">Select Package</button>
+                </div>
+
+                <div class="pricing-card featured fade-in tilt-card visible">
+                    <div class="pricing-badge pulse-animation">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price counter" data-target="340">$720</div>
+                    <p class="description">Full-featured applications for growing businesses</p>
+                    <ul class="pricing-features">
+                        <li>Advanced web/mobile app</li>
+                        <li>Custom API development</li>
+                        <li>Third-party integrations</li>
+                        <li>Admin dashboard</li>
+                        <li>Payment processing</li>
+                        <li>6 months support</li>
+                        <li>6-12 week delivery</li>
+                    </ul>
+                    <button class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;professional&#39;, 360)">Select Package</button>
+                </div>
+
+                <div class="pricing-card fade-in tilt-card visible">
+                    <h3>Enterprise</h3>
+                    <div class="price counter" data-target="550">$1200</div>
+                    <p class="description">Large-scale systems with advanced architecture</p>
+                    <ul class="pricing-features">
+                        <li>Complex multi-platform app</li>
+                        <li>Microservices architecture</li>
+                        <li>Advanced security features</li>
+                        <li>Real-time capabilities</li>
+                        <li>Cloud infrastructure setup</li>
+                        <li>12 months support</li>
+                        <li>Custom timeline</li>
+                    </ul>
+                    <button class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;enterprise&#39;, 550)">Select Package</button>
+                </div>
+            </div>
+
+            <!-- Order CTA -->
+<div class="order-form-container fade-in visible" style="text-align:center;">
+  <h3 style="color: var(--white); margin-bottom: 1rem; font-size: 1.8rem;">Ready to place your order?</h3>
+  <p style="color: var(--gray); margin-bottom: 2rem;">Skip the form and head straight to checkout.</p>
+  <a href="https://order.maxpri.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary ripple magnetic-btn" style="display:inline-flex; align-items:center; justify-content:center; padding: 1.1rem 2.5rem; border-radius: 999px; font-size: 1.1rem; box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);">Order Now</a>
+</div>
+<!-- Order Confirmation Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">🎉</div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for choosing Maxpri</p>
+            </div>
+
+            <div class="confirmation-code">
+                <label>Your Unique Confirmation Code</label>
+                <div class="code" id="confirmationCode">LOADING</div>
+                <p style="color: var(--gray); font-size: 0.85rem; margin-top: 1rem;">This code is unique and will never be generated again</p>
+            </div>
+
+            <div class="code-warning">
+                <div class="warning-icon">⚠️</div>
+                <p>IMPORTANT: Keep This Code Safe!</p>
+                <ul>
+                    <li>Save this code immediately - it will only be shown once</li>
+                    <li>You&#39;ll need it to access your project dashboard</li>
+                    <li>Use it for support inquiries and project updates</li>
+                    <li>Take a screenshot or write it down now</li>
+                </ul>
+            </div>
+
+            <div style="background: var(--dark); border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem;">
+                <h4 style="color: var(--white); margin-bottom: 1rem; font-size: 1.1rem;">📧 What&#39;s Next?</h4>
+                <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                    You&#39;ll receive a confirmation email within 24 hours with your project timeline, kick-off meeting details, and contract documents. Our team will contact you shortly to begin your custom app development!
+                </p>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-primary btn-copy" onclick="copyConfirmationCode()">📋 Copy Code</button>
+                <button class="btn btn-primary btn-close" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- Final Contact Section -->
+    <section id="contact" class="contact-info-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Get In Touch</h2>
+                <p>Have a specific inquiry? Reach out to our engineering team directly.</p>
+            </div>
+            
+            <div class="contact-info-grid">
+                <!-- Email Card -->
+                <a href="mailto:maxpri.tech@gmail.com" class="contact-method-card fade-in">
+                    <div class="contact-method-icon">✉️</div>
+                    <h3>Email Us</h3>
+                    <p>maxpri.tech@gmail.com</p>
+                    <span>We usually respond within 24 hours</span>
+                </a>
+
+                <!-- Phone Card -->
+                <a href="tel:+15551234567" class="contact-method-card fade-in">
+                    <div class="contact-method-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p>+1 (330) 305-2588</p>
+                    <span>Mon - Fri, 9am - 6pm EST</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="maxpri-logo.png" alt="Maxpri Logo" style="height: 50px; width: auto; margin-bottom: 1rem;" />
+                <p>Engineering scalable, high-performance software systems designed for long-term reliability and growth.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#services">Custom Development</a>
+                <a href="#services">System Architecture</a>
+                <a href="#services">Performance Optimization</a>
+                <a href="#services">Automation Solutions</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#why-us">About Us</a>
+                <a href="#process">Our Process</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Maxpri. All rights reserved. | Building systems, not just software.</p>
+        </div>
+    </footer>
+
+    <!-- AI Chat Widget -->
+    <button id="chat-bubble" aria-label="Chat with Maxpri AI">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2zm0 16c-1.1 0-2.16-.18-3.14-.51L6 18.5l.97-2.96C5.73 14.3 4 12.76 4 11c0-3.87 3.58-7 8-7s8 3.13 8 7-3.58 7-8 7z"/><circle cx="8.5" cy="11" r="1.25"/><circle cx="12" cy="11" r="1.25"/><circle cx="15.5" cy="11" r="1.25"/></svg>
+        <span id="chat-badge">1</span>
+    </button>
+    <div id="chat-panel">
+        <div class="chat-header">
+            <div class="chat-avatar">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>
+            </div>
+            <div class="chat-header-info">
+                <div class="chat-title">Maxpri Assistant</div>
+                <div class="chat-status">Online — AI-powered support</div>
+            </div>
+            <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-time">Today</div>
+            <div class="chat-row">
+                <div class="chat-row-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>
+                </div>
+                <div class="chat-msg bot">Hi there! 👋 I'm the Maxpri AI assistant. I can help you explore our services, packages, and pricing — or answer any technical questions. What can I help you with today?</div>
+            </div>
+        </div>
+        <div class="chat-chips" id="chatChips">
+            <div class="chat-chip" onclick="chipSend('What services do you offer?')">Services</div>
+            <div class="chat-chip" onclick="chipSend('Tell me about pricing')">Pricing</div>
+            <div class="chat-chip" onclick="chipSend('How long does a project take?')">Timeline</div>
+            <div class="chat-chip" onclick="chipSend('What is Maxpri Valley?')">Maxpri Valley</div>
+        </div>
+        <div class="chat-input-wrapper">
+            <div class="chat-input-row">
+                <input type="text" id="chatInput" placeholder="Ask me anything…" onkeydown="if(event.key==='Enter')sendChat()" autocomplete="off" />
+                <button class="chat-send-btn" id="chatSendBtn" onclick="sendChat()" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+            <div class="chat-footer-note">Powered by <a href="https://anthropic.com" target="_blank" rel="noopener">Claude AI</a> · Maxpri Technologies</div>
+        </div>
+    </div>
+
+    <script>
+        // ===== PARTICLE SYSTEM =====
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // ===== CURSOR TRAIL EFFECT =====
+        let cursorTrails = [];
+        function createCursorTrail(e) {
+            if (window.innerWidth < 768) return;
+
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+            trail.style.opacity = '0.6';
+            document.body.appendChild(trail);
+
+            cursorTrails.push(trail);
+
+            setTimeout(() => {
+                trail.style.opacity = '0';
+                setTimeout(() => {
+                    if (trail.parentNode) document.body.removeChild(trail);
+                    cursorTrails = cursorTrails.filter(t => t !== trail);
+                }, 300);
+            }, 100);
+
+            if (cursorTrails.length > 10) {
+                const oldTrail = cursorTrails.shift();
+                if (oldTrail && oldTrail.parentNode) document.body.removeChild(oldTrail);
+            }
+        }
+
+        // ===== SCROLL PROGRESS BAR =====
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+
+        // ===== 3D TILT EFFECT =====
+        function addTiltEffect() {
+            const tiltCards = document.querySelectorAll('.tilt-card');
+
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        }
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = '$' + Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = '$' + target;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && counter.textContent === '$0') {
+                            updateCounter();
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+        }
+
+        // ===== MAGNETIC BUTTON EFFECT =====
+        function addMagneticEffect() {
+            const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+
+        // ===== FADE-IN OBSERVER =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // ===== INITIALIZE ALL EFFECTS =====
+        window.addEventListener('DOMContentLoaded', function () {
+            createParticles();
+            animateCounters();
+            addTiltEffect();
+            addMagneticEffect();
+
+            document.addEventListener('mousemove', createCursorTrail);
+            window.addEventListener('scroll', updateProgressBar);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            loadUsedCodes();
+
+            // Chat bubble
+            initChat();
+            document.getElementById('chat-bubble').addEventListener('click', toggleChat);
+        });
+
+        // ===== CONTACT FORM =====
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you shortly.');
+                this.reset();
+            });
+        }
+
+        // ===== MOBILE MENU (DRAWER) =====
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+
+        if (mobileMenu && mobileDrawer) {
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                mobileDrawer.classList.toggle('open');
+                document.body.style.overflow = mobileDrawer.classList.contains('open') ? 'hidden' : '';
+            });
+            document.querySelectorAll('.drawer-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileDrawer.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // ===== ORDER FORM FUNCTIONS =====
+        let selectedPaymentMethod = '';
+        let usedCodes = new Set();
+
+        function generateUniqueCode() {
+            const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code;
+            let attempts = 0;
+            const maxAttempts = 100;
+
+            do {
+                code = '';
+                for (let i = 0; i < 7; i++) {
+                    code += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                attempts++;
+
+                if (attempts > maxAttempts) {
+                    console.error('Failed to generate unique code after', maxAttempts, 'attempts');
+                    break;
+                }
+            } while (usedCodes.has(code));
+
+            usedCodes.add(code);
+
+            try {
+                const storedCodes = JSON.parse(localStorage.getItem('maxpriUsedCodes') || '[]');
+                storedCodes.push(code);
+                localStorage.setItem('maxpriUsedCodes', JSON.stringify(storedCodes));
+            } catch (e) {
+                console.error('Failed to store code:', e);
+            }
+
+            return code;
+        }
+
+        function loadUsedCodes() {
+            try {
+                const storedCodes = JSON.parse(localStorage.getItem('maxpriUsedCodes') || '[]');
+                usedCodes = new Set(storedCodes);
+            } catch (e) {
+                console.error('Failed to load used codes:', e);
+            }
+        }
+
+        function selectPackage(packageName, price) {
+            document.getElementById('package').value = packageName;
+            updatePrice();
+            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function updatePrice() {
+            const packageSelect = document.getElementById('package');
+            const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+            const price = selectedOption.dataset.price ? parseInt(selectedOption.dataset.price) : 0;
+
+            const deposit = Math.round(price * 0.3);
+            const balance = price - deposit;
+
+            document.getElementById('summaryPackage').textContent = selectedOption.text || 'Not selected';
+            document.getElementById('summaryDeposit').textContent = '$' + deposit.toLocaleString();
+            document.getElementById('summaryBalance').textContent = '$' + balance.toLocaleString();
+            document.getElementById('summaryTotal').textContent = '$' + price.toLocaleString();
+        }
+
+        function selectPayment(method, event) {
+            selectedPaymentMethod = method;
+            document.getElementById('paymentMethod').value = method;
+
+            document.querySelectorAll('.payment-method').forEach(pm => {
+                pm.classList.remove('selected');
+            });
+
+            event.currentTarget.classList.add('selected');
+
+            const cardDetails = document.getElementById('cardDetails');
+            if (method === 'card') {
+                cardDetails.classList.add('active');
+                document.getElementById('cardNumber').required = true;
+                document.getElementById('cardExpiry').required = true;
+                document.getElementById('cardCvv').required = true;
+                document.getElementById('cardName').required = true;
+            } else {
+                cardDetails.classList.remove('active');
+                document.getElementById('cardNumber').required = false;
+                document.getElementById('cardExpiry').required = false;
+                document.getElementById('cardCvv').required = false;
+                document.getElementById('cardName').required = false;
+            }
+        }
+
+        // Card number formatting
+        document.getElementById('cardNumber')?.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Expiry date formatting
+        document.getElementById('cardExpiry')?.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // CVV numbers only
+        document.getElementById('cardCvv')?.addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Order form submission
+        document.getElementById('orderForm')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (!selectedPaymentMethod) {
+                alert('Please select a payment method');
+                return;
+            }
+
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                package: document.getElementById('package').value,
+                projectDescription: document.getElementById('projectDescription').value,
+                timeline: document.getElementById('timeline').value,
+                paymentMethod: selectedPaymentMethod
+            };
+
+            if (selectedPaymentMethod === 'card') {
+                formData.cardNumber = document.getElementById('cardNumber').value;
+                formData.cardExpiry = document.getElementById('cardExpiry').value;
+                formData.cardCvv = document.getElementById('cardCvv').value;
+                formData.cardName = document.getElementById('cardName').value;
+            }
+
+            console.log('Order submitted:', formData);
+
+            const confirmationCode = generateUniqueCode();
+            document.getElementById('confirmationCode').textContent = confirmationCode;
+            document.getElementById('orderModal').classList.add('active');
+
+            this.reset();
+            selectedPaymentMethod = '';
+            document.getElementById('paymentMethod').value = '';
+            document.querySelectorAll('.payment-method').forEach(pm => pm.classList.remove('selected'));
+            document.getElementById('cardDetails').classList.remove('active');
+            updatePrice();
+            document.getElementById('summaryPackage').textContent = 'Not selected';
+        });
+
+        function copyConfirmationCode() {
+            const code = document.getElementById('confirmationCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Confirmation code copied!');
+            }).catch(() => {
+                alert('Could not copy code. Please copy it manually.');
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+        }
+
+        window.addEventListener('click', function (e) {
+            const modal = document.getElementById('orderModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        // ===== AI CHAT WIDGET =====
+        let chatOpen = false;
+        let chatPanel, chatMessages, chatInput, chatSendBtn, chatBadge;
+
+        function initChat() {
+            chatPanel = document.getElementById('chat-panel');
+            chatMessages = document.getElementById('chatMessages');
+            chatInput = document.getElementById('chatInput');
+            chatSendBtn = document.getElementById('chatSendBtn');
+            chatBadge = document.getElementById('chat-badge');
+        }
+
+        function toggleChat() {
+            if (!chatPanel) initChat();
+            chatOpen = !chatOpen;
+            chatPanel.classList.toggle('open', chatOpen);
+            if (chatOpen) {
+                chatInput.focus();
+                if (chatBadge) chatBadge.classList.add('hidden');
+            }
+        }
+
+        function addChatMsg(text, type) {
+            const isBot = type === 'bot' || type === 'bot typing';
+            const row = document.createElement('div');
+            row.className = 'chat-row' + (isBot ? '' : ' user');
+
+            if (isBot) {
+                const av = document.createElement('div');
+                av.className = 'chat-row-avatar';
+                av.innerHTML = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.67 1.19 5.07 3.08 6.74L4 22l4.5-1.5C9.56 20.81 10.75 21 12 21c5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>';
+                row.appendChild(av);
+            }
+
+            const d = document.createElement('div');
+            d.className = 'chat-msg ' + (isBot ? 'bot' : 'user');
+
+            if (type === 'bot typing') {
+                d.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+            } else {
+                d.textContent = text;
+            }
+            row.appendChild(d);
+            chatMessages.appendChild(row);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return row;
+        }
+
+        function chipSend(text) {
+            // Hide chips after first use
+            const chips = document.getElementById('chatChips');
+            if (chips) chips.style.display = 'none';
+            chatInput.value = text;
+            sendChat();
+        }
+
+        async function sendChat() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            chatInput.value = '';
+            chatSendBtn.disabled = true;
+
+            // Hide quick chips after first message
+            const chips = document.getElementById('chatChips');
+            if (chips) chips.style.display = 'none';
+
+            addChatMsg(text, 'user');
+            const typingRow = addChatMsg('', 'bot typing');
+            try {
+                const res = await fetch('https://geminiapi.maxpri.workers.dev', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: 'claude-sonnet-4-20250514',
+                        max_tokens: 1000,
+                        system: `You are the friendly, knowledgeable AI assistant for Maxpri Technologies — a software engineering company that designs, develops, and maintains scalable, high-performance applications.\n\nKey facts about Maxpri:\n- Services: Custom app development, system architecture, performance optimization, automation & tooling, legacy system modernization, maintenance & support\n- Packages: Starter ($170, 2-4 wk), Professional ($360, 6-12 wk), Enterprise ($550, custom timeline)\n- Maxpri Valley: An all-in-one AI workspace for business at valley.maxpri.workers.dev\n- Philosophy: Clean code, modular design, security-first, minimal technical debt, systems-first mindset\n- Contact: daniel.aronbabu.mailbox@gmail.com | +1 (555) 123-4567\n- Also runs a computer repair division as a client relationship channel\n\nBe concise, warm, and helpful. Keep answers under 3 sentences unless explaining a complex topic. Direct prospects to contact us or choose a package when appropriate.`,
+                        messages: [{ role: 'user', content: text }]
+                    })
+                });
+                const data = await res.json();
+                const reply = data.content?.find(b => b.type === 'text')?.text || 'Sorry, I couldn\'t get a response right now. Email us at daniel.aronbabu.mailbox@gmail.com!';
+                typingRow.remove();
+                addChatMsg(reply, 'bot');
+            } catch {
+                typingRow.remove();
+                addChatMsg('Connection issue. Email us at daniel.aronbabu.mailbox@gmail.com!', 'bot');
+            }
+            chatSendBtn.disabled = false;
+            chatInput.focus();
+        }
+        // ===== WE BUILD ANIMATION =====
+
+</script>
+
+</body></html>
