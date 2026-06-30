@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAXPRI | Products</title>
+  <style>
+    :root {
+      --bg: #060b14;
+      --panel: rgba(10, 18, 32, 0.92);
+      --panel-2: rgba(16, 26, 44, 0.95);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #f5f7fb;
+      --muted: #8ea0b8;
+      --accent: #4f8cff;
+      --accent-2: #2dd4bf;
+      --accent-3: #ff8a3d;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(79, 140, 255, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 138, 61, 0.14), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: rgba(7, 12, 22, 0.82);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .topbar-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 10px 25px rgba(79, 140, 255, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr;
+      gap: 24px;
+      margin: 30px 0 28px;
+      padding: 28px;
+      background: linear-gradient(145deg, rgba(10, 18, 32, 0.95), rgba(15, 24, 40, 0.9));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(79, 140, 255, 0.13);
+      color: #a9c7ff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3.7vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 700px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-card-footer {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 26px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      max-width: 760px;
+    }
+
+    .section-header h2 {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .app-card {
+      display: block;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.025));
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(79, 140, 255, 0.35);
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.12);
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      color: white;
+    }
+
+    .app-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .app-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .product-highlight {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(79, 140, 255, 0.08);
+      border: 1px solid rgba(79, 140, 255, 0.18);
+      color: #cfe0ff;
+      line-height: 1.7;
+    }
+
+    .delusion-section {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: center;
+      padding: 6px 0;
+    }
+
+    .delusion-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .delusion-copy p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .delusion-visual {
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .delusion-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      background: #0a1321;
+    }
+
+    .explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-top: 6px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #f5f7fb;
+      color: #081120;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .footer-cta {
+      margin-top: 24px;
+      text-align: center;
+      padding: 24px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(79, 140, 255, 0.14), rgba(45, 212, 191, 0.12));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-cta h3 {
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+
+    .footer-cta p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px;
+      }
+
+      .topbar,
+      .hero,
+      .section {
+        padding: 18px;
+      }
+
+      .topbar-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark">M</span>
+        <span>MAXPRI</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#products">Products</a>
+        <a href="#valley">Valley</a>
+        <a href="#base">Base</a>
+      </nav>
+      <div class="topbar-actions">
+        <a class="btn btn-secondary" href="https://valley.maxpri.workers.dev">Preview Valley</a>
+        <a class="btn btn-primary" href="https://auth.maxpri.workers.dev">Get Started</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Corporate product experience</p>
+          <h1>A polished digital operating layer for modern teams and everyday work.</h1>
+          <p>
+            MAXPRI brings together productivity, AI, collaboration, storage, and planning into a connected ecosystem built for business operations and personal organization alike.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://valley.maxpri.workers.dev">Explore Valley</a>
+            <a class="btn btn-secondary" href="https://auth.maxpri.workers.dev">Access Platform</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="stats">
+            <div class="stat">
+              <strong>6</strong>
+              <span>Core tools</span>
+            </div>
+            <div class="stat">
+              <strong>2</strong>
+              <span>Product suites</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Connected workflow</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Digital access</span>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            Built for organizations that want structure, clarity, and a premium user experience across every workflow.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="delusion-section">
+          <div class="delusion-copy">
+            <p class="eyebrow">Featured product</p>
+            <h2>Delusion brings a refined browser experience to the MAXPRI ecosystem.</h2>
+            <p>
+              Designed as a polished, focused product showcase, Delusion offers an elegant way to explore content with clarity and intent.
+            </p>
+            <a class="explore-link" href="https://delusion.maxpri.workers.dev">
+              Explore <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="delusion-visual">
+            <img src="projectdelusion2.svg" alt="Delusion browser preview" />
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="section">
+        <div class="section-header">
+          <p class="eyebrow">Product suite</p>
+          <h2>Professional tools designed for clarity, control, and execution.</h2>
+          <p>
+            Each product in the MAXPRI ecosystem serves a clear purpose while remaining deeply connected to the broader platform experience.
+          </p>
+        </div>
+        <div class="product-highlight">
+          MAXPRI delivers a business-ready environment for knowledge management, AI assistance, secure file access, planning, and team coordination without the complexity of fragmented software.
+        </div>
+      </section>
+
+      <section id="valley" class="section">
+        <div class="section-header">
+          <p class="eyebrow">Maxpri Valley</p>
+          <h2>The business operating suite for teams and intelligent workflows.</h2>
+          <p>
+            A modern environment for collaboration, knowledge, files, and AI-powered productivity across your organization.
+          </p>
+        </div>
+        <div class="app-grid">
+          <a class="app-card" href="https://write.maxpri.workers.dev">
+            <div class="app-icon">W</div>
+            <h3>Write</h3>
+            <p>Structured documents, workspace notes, knowledge bases, and writing tools.</p>
+          </a>
+
+          <a class="app-card" href="https://pulse.maxpri.workers.dev">
+            <div class="app-icon">P</div>
+            <h3>Pulse</h3>
+            <p>AI-powered intelligence for generation, automation, search, and summaries.</p>
+          </a>
+
+          <a class="app-card" href="https://vault.maxpri.workers.dev">
+            <div class="app-icon">V</div>
+            <h3>Vault</h3>
+            <p>Secure cloud storage for workspace files, uploads, and digital assets.</p>
+          </a>
+
+          <a class="app-card" href="https://orbit.maxpri.workers.dev">
+            <div class="app-icon">O</div>
+            <h3>Orbit</h3>
+            <p>Scheduling, planning, reminders, calendars, and coordination tools.</p>
+          </a>
+
+          <a class="app-card" href="https://colleague.maxpri.workers.dev">
+            <div class="app-icon">C</div>
+            <h3>Colleague</h3>
+            <p>Team collaboration, member management, roles, and workspace structure.</p>
+          </a>
+
+          <a class="app-card" href="https://auth.maxpri.workers.dev">
+            <div class="app-icon">A</div>
+            <h3>Access</h3>
+            <p>Unified authentication, security, identity, and account management.</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="base" class="section">
+        <div class="section-header">
+          <p class="eyebrow">Maxpri Base</p>
+          <h2>A personal digital environment for notes, AI, files, and everyday organization.</h2>
+          <p>
+            Designed for individuals who want a streamlined system for planning, knowledge capture, and personal productivity.
+          </p>
+        </div>
+        <div class="app-grid">
+          <a class="app-card" href="https://write.maxpri.workers.dev">
+            <div class="app-icon">W</div>
+            <h3>Write</h3>
+            <p>Personal writing, journaling, notes, and everyday thought organization.</p>
+          </a>
+
+          <a class="app-card" href="https://pulse.maxpri.workers.dev">
+            <div class="app-icon">P</div>
+            <h3>Pulse</h3>
+            <p>Your personal AI assistant for thinking, planning, and organization.</p>
+          </a>
+
+          <a class="app-card" href="https://vault.maxpri.workers.dev">
+            <div class="app-icon">V</div>
+            <h3>Vault</h3>
+            <p>Private storage for files, uploads, documents, and digital assets.</p>
+          </a>
+
+          <a class="app-card" href="https://orbit.maxpri.workers.dev">
+            <div class="app-icon">O</div>
+            <h3>Orbit</h3>
+            <p>Personal scheduling, reminders, planning, and life organization.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="footer-cta">
+        <h3>Ready to experience the platform?</h3>
+        <p>Use the links below to preview the experience or get started with your account.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://valley.maxpri.workers.dev">Preview Valley</a>
+          <a class="btn btn-secondary" href="https://auth.maxpri.workers.dev">Get Started</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
