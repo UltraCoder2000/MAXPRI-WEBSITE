@@ -24,14 +24,6 @@
         })();
     </script>
     <meta charset="utf-8">
-    <script>
-        const requestUrl = window.location.href;
-        const requestHost = new URL(requestUrl).hostname;
-
-        if (requestHost.includes("workers.dev")) {
-            window.location.replace("https://maxpritech.com");
-        }
-    </script>
     <style>
         /* New Contact Details Section */
         .contact-info-section {
@@ -596,65 +588,6 @@
         .feature-content p {
             color: var(--gray);
             font-size: 0.95rem;
-        }
-
-        /* Our Team Section */
-        .team-section {
-            padding: 6rem 2rem;
-            background: var(--dark);
-        }
-       .team-section .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .team-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary);
-            box-shadow: 0 18px 45px rgba(59, 130, 246, 0.22);
-        }
-
-        .team-card .team-photo {
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(6, 182, 212, 0.18));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--secondary);
-        }
-
-        .team-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-            color: var(--white);
-        }
-
-        .team-card p {
-            color: var(--gray);
-            line-height: 1.75;
-            font-size: 0.98rem;
         }
 
         /* CTA Section */
@@ -1974,7 +1907,7 @@
         </div>
     </section>
 
-    <!-- Superiority Section Preview Image -->
+    <!-- Delusion Section Preview Image -->
 <section style="padding: 0 2rem 4rem; background: var(--dark);">
     <div style="
         max-width: 1100px;
@@ -1985,8 +1918,8 @@
         box-shadow: 0 30px 80px rgba(0,0,0,0.5);
     ">
         <img
-            src="projectsuperiority.svg"
-            alt="Project Superiority AI Web Browser"
+            src="projectdelusion.svg"
+            alt="Project Delusion AI Web Browser"
             style="
                 width: 100%;
                 display: block;
@@ -1995,7 +1928,7 @@
         />
         <div style="text-align:center; padding: 2rem 0;">
     <a
-        href="https://superiority.maxpri.workers.dev"
+        href="https://delusion.maxpri.workers.dev"
         target="_blank"
         style="
             display:inline-block;
@@ -2012,7 +1945,7 @@
         onmouseover="this.style.transform='translateY(-3px)'"
         onmouseout="this.style.transform='translateY(0)'"
     >
-        Preview Superiority Browser →
+        Preview Delusion Browser →
     </a>
 </div>
     </div>
@@ -2165,33 +2098,6 @@
         </div>
     </section>
 
-    <!-- Our Team Section -->
-    <section id="team" class="team-section">
-        <div class="container">
-            <div class="section-header fade-in visible">
-                <h2>Meet Our Executive Team</h2>
-                <p>Experienced professionals building scalable systems with precision and care.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card fade-in visible">
-                    <div class="team-photo">DA</div>
-                    <h3>Daniel A.</h3>
-                    <p>Founder and CEO with extensive experience in software development and strategic leadership.</p>
-                </div>
-                <div class="team-card fade-in visible">
-                    <div class="team-photo">MB</div>
-                    <h3>Miles B.</h3>
-                    <p>Director Of Engineering with a strong background in leading development teams and delivering high-quality software solutions.</p>
-                </div>
-                <div class="team-card fade-in visible">
-                    <div class="team-photo">R</div>
-                    <h3>Riley Chen</h3>
-                    <p>Product leader driving thoughtful design, customer-focused planning, and agile delivery.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Stats Strip (new) -->
     <div class="stats-strip fade-in visible">
         <div class="stats-strip-inner">
@@ -2245,7 +2151,7 @@
                         <li>3 months support</li>
                         <li>2-4 week delivery</li>
                     </ul>
-                    <button class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;starter&#39;, 170)">Select Package</button>
+                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;starter&#39;, 170)">Select Package</a>
                 </div>
 
                 <div class="pricing-card featured fade-in tilt-card visible">
@@ -2262,7 +2168,7 @@
                         <li>6 months support</li>
                         <li>6-12 week delivery</li>
                     </ul>
-                    <button class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;professional&#39;, 360)">Select Package</button>
+                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;professional&#39;, 360)">Select Package</a>
                 </div>
 
                 <div class="pricing-card fade-in tilt-card visible">
@@ -2278,7 +2184,7 @@
                         <li>12 months support</li>
                         <li>Custom timeline</li>
                     </ul>
-                    <button class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;enterprise&#39;, 550)">Select Package</button>
+                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;enterprise&#39;, 550)">Select Package</a>
                 </div>
             </div>
 
@@ -2358,7 +2264,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="maxpri-logo.png" alt="Maxpri Logo" style="height: 50px; width: auto; margin-bottom: 1rem;" />
+                <img src="logo.png" alt="Maxpri Logo" style="height: 50px; width: auto; margin-bottom: 1rem;" />
                 <p>Engineering scalable, high-performance software systems designed for long-term reliability and growth.</p>
             </div>
             <div class="footer-section">
