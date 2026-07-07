@@ -1,5 +1,34 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+    <!--
+        Redirect helper:
+        - Client-side: the script below checks the hostname and uses `location.replace()` to redirect when hosted on workers.dev.
+          NOTE: client-side redirects cannot set the HTTP status to 301. They perform a browser navigation instead.
+        - Server-side (recommended for a true 301): use a Cloudflare Worker like the example shown here. Deploy it separately.
+
+        Cloudflare Worker example (paste into a Worker script):
+        addEventListener('fetch', event => {
+          const url = new URL(event.request.url);
+          if (url.hostname.includes('workers.dev')) {
+            return event.respondWith(Response.redirect('https://maxpritech.com', 301));
+          }
+          return event.respondWith(fetch(event.request));
+        });
+    -->
+
+    <script>
+        (function(){
+            try {
+                if (typeof window !== 'undefined' && window.location && /workers\.dev/i.test(window.location.hostname)) {
+                    // Client-side redirect (cannot set HTTP 301 from static HTML)
+                    window.location.replace('https://maxpritech.com');
+                }
+            } catch (e) {
+                // swallow errors to avoid breaking the page
+                console.error('redirect check failed', e);
+            }
+        })();
+    </script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maxpri Technologies</title>
@@ -2151,7 +2180,7 @@
                         <li>3 months support</li>
                         <li>2-4 week delivery</li>
                     </ul>
-                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;starter&#39;, 170)">Select Package</a>
+                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage('starter', 170)">Select Package</a>
                 </div>
 
                 <div class="pricing-card featured fade-in tilt-card visible">
@@ -2168,7 +2197,7 @@
                         <li>6 months support</li>
                         <li>6-12 week delivery</li>
                     </ul>
-                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;professional&#39;, 360)">Select Package</a>
+                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage('professional', 360)">Select Package</a>
                 </div>
 
                 <div class="pricing-card fade-in tilt-card visible">
@@ -2184,7 +2213,7 @@
                         <li>12 months support</li>
                         <li>Custom timeline</li>
                     </ul>
-                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage(&#39;enterprise&#39;, 550)">Select Package</a>
+                    <a href="https://order.maxpri.workers.dev/" class="btn btn-primary ripple magnetic-btn" style="width: 100%;" onclick="selectPackage('enterprise', 550)">Select Package</a>
                 </div>
             </div>
 
