@@ -120,6 +120,34 @@
 
   .secure-note{text-align:center;font-size:.78rem;color:var(--gray);margin-top:.75rem}
 
+  /* ── Questionnaire ── */
+  .questionnaire-card .step-panel{display:none;animation:fadeUp .25s ease-out}
+  .questionnaire-card .step-panel.active{display:block}
+  .progress-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
+  .progress-bar{flex:1;height:8px;border-radius:999px;background:var(--border);overflow:hidden}
+  .progress-bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .25s ease}
+  .step-counter{font-size:.8rem;color:var(--gray);font-weight:600}
+  .step-title{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.85rem}
+  .step-copy{font-size:.9rem;color:var(--gray);margin-bottom:1rem}
+  .option-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .option-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:.8rem .7rem;border:1px solid var(--border);border-radius:10px;background:var(--card-bg2);color:var(--text);font-weight:600;cursor:pointer;transition:border-color .2s,background .2s,transform .12s}
+  .option-card:hover{border-color:var(--primary);transform:translateY(-1px)}
+  .option-card.selected{border-color:var(--secondary);background:rgba(6,182,212,.12);color:var(--secondary)}
+  .option-card input{display:none}
+  .feature-option{justify-content:flex-start;gap:.6rem;padding:.8rem .75rem}
+  .feature-option span{display:inline-flex;align-items:center;gap:.45rem}
+  .questionnaire-actions{display:flex;justify-content:space-between;gap:.75rem;margin-top:1.25rem}
+  .secondary-btn,.primary-btn{border:none;border-radius:10px;padding:.75rem 1rem;font-weight:700;cursor:pointer;transition:transform .12s,opacity .12s,background .2s}
+  .secondary-btn{background:transparent;border:1px solid var(--border);color:var(--gray)}
+  .secondary-btn:hover{border-color:var(--primary);color:var(--text)}
+  .primary-btn{background:linear-gradient(90deg,var(--primary),var(--secondary));color:var(--white)}
+  .primary-btn:hover{transform:translateY(-1px)}
+  .secondary-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .questionnaire-summary{margin-top:1rem;padding:1rem 1.1rem;border:1px solid var(--border);border-radius:10px;background:rgba(59,130,246,.05)}
+  .questionnaire-summary .sum-title{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--secondary);margin-bottom:.35rem}
+  .questionnaire-summary .sum-body{font-size:.9rem;color:var(--gray);line-height:1.6}
+  .questionnaire-summary .sum-body strong{color:var(--text)}
+
   /* ── Confirmation ── */
   .confirm-box{display:none;background:rgba(6,182,212,.07);border:1px solid rgba(6,182,212,.3);border-radius:14px;padding:2rem;text-align:center;margin-top:1.25rem}
   .confirm-box.show{display:block;animation:fadeUp .4s ease-out}
@@ -203,6 +231,59 @@
     <div class="summary">
       <div class="sum-row"><span>Estimated delivery</span><span id="sum-del">—</span></div>
       <div class="sum-row"><span>Total project cost</span><span class="val" id="sum-total">$0</span></div>
+    </div>
+  </div>
+
+  <!-- Project questionnaire -->
+  <div class="card questionnaire-card">
+    <div class="card-title"><i-dot></i-dot> Project questionnaire</div>
+
+    <div class="progress-row">
+      <div class="progress-bar"><span id="questionnaire-progress"></span></div>
+      <span class="step-counter" id="questionnaire-step-label">Step 1 of 3</span>
+    </div>
+
+    <div class="step-panel active" data-step="0">
+      <p class="step-title">Select your platform</p>
+      <p class="step-copy">Choose the main experience you want to build.</p>
+      <div class="option-grid">
+        <button type="button" class="option-card platform-option" data-platform="Web">Web</button>
+        <button type="button" class="option-card platform-option" data-platform="Mobile">Mobile</button>
+        <button type="button" class="option-card platform-option" data-platform="Automation">Automation</button>
+      </div>
+    </div>
+
+    <div class="step-panel" data-step="1">
+      <p class="step-title">Choose your features</p>
+      <p class="step-copy">Select the capabilities that matter most for your app.</p>
+      <div class="option-grid">
+        <label class="option-card feature-option"><input type="checkbox" value="Auth"><span>🔐 Auth</span></label>
+        <label class="option-card feature-option"><input type="checkbox" value="Payments"><span>💳 Payments</span></label>
+        <label class="option-card feature-option"><input type="checkbox" value="AI/LLM integration"><span>🤖 AI/LLM</span></label>
+      </div>
+    </div>
+
+    <div class="step-panel" data-step="2">
+      <p class="step-title">Describe your idea</p>
+      <p class="step-copy">Share the full concept and the features you want most.</p>
+      <div class="field">
+        <label for="q-full-description">Name and Full Description *</label>
+        <textarea id="q-full-description" placeholder="Describe your product, business goals, and target users..."></textarea>
+      </div>
+      <div class="field">
+        <label for="q-features-want">Features You Want</label>
+        <textarea id="q-features-want" placeholder="List the specific features or workflows you want included..."></textarea>
+      </div>
+    </div>
+
+    <div class="questionnaire-actions">
+      <button type="button" class="secondary-btn" id="q-prev" disabled>Back</button>
+      <button type="button" class="primary-btn" id="q-next">Next</button>
+    </div>
+
+    <div class="questionnaire-summary">
+      <div class="sum-title">Questionnaire summary</div>
+      <div class="sum-body" id="questionnaire-summary-body">Choose a platform to get started.</div>
     </div>
   </div>
 
@@ -322,6 +403,7 @@ const TIERS = [
 ];
 
 let curTier = 0;
+const PAYPAL_SLOTS = ["starter", "professional", "enterprise"];
 
 function fmt(n){ return "$" + n.toLocaleString(); }
 
@@ -355,16 +437,125 @@ document.querySelectorAll(".tier-label").forEach(el => {
 renderTier(0);
 
 // ── PayPal slot switcher ───────────────────────────────────
-const PAYPAL_SLOTS = ["starter", "professional", "enterprise"];
 function updatePayPalSlot() {
   const tier = TIERS[curTier];
-  document.getElementById("pp-tier-badge").textContent =
-    tier.name + " — " + fmt(tier.price) + " total";
+  const badge = document.getElementById("pp-tier-badge");
+  if (badge) {
+    badge.textContent = tier.name + " — " + fmt(tier.price) + " total";
+  }
   PAYPAL_SLOTS.forEach((slug, i) => {
     const slot = document.getElementById("paypal-btn-" + slug);
     if (slot) slot.style.display = (i === curTier) ? "flex" : "none";
   });
 }
+
+// ── Step-by-step questionnaire ─────────────────────────────
+const questionnaireState = {
+  step: 0,
+  platform: "",
+  features: [],
+  fullDescription: "",
+  wantedFeatures: ""
+};
+
+const questionnairePanels = Array.from(document.querySelectorAll(".questionnaire-card .step-panel"));
+const progressBar = document.getElementById("questionnaire-progress");
+const stepLabel = document.getElementById("questionnaire-step-label");
+const prevBtn = document.getElementById("q-prev");
+const nextBtn = document.getElementById("q-next");
+const summaryBody = document.getElementById("questionnaire-summary-body");
+
+function renderQuestionnaire() {
+  questionnairePanels.forEach((panel, index) => {
+    panel.classList.toggle("active", index === questionnaireState.step);
+  });
+
+  const totalSteps = questionnairePanels.length;
+  const percent = totalSteps > 1 ? ((questionnaireState.step + 1) / totalSteps) * 100 : 100;
+  progressBar.style.width = percent + "%";
+  stepLabel.textContent = `Step ${questionnaireState.step + 1} of ${totalSteps}`;
+  prevBtn.disabled = questionnaireState.step === 0;
+  nextBtn.textContent = questionnaireState.step === totalSteps - 1 ? "Finish" : "Next";
+
+  const lines = [];
+  if (questionnaireState.platform) lines.push(`<strong>Platform:</strong> ${questionnaireState.platform}`);
+  if (questionnaireState.features.length) lines.push(`<strong>Features:</strong> ${questionnaireState.features.join(", ")}`);
+  if (questionnaireState.fullDescription) lines.push(`<strong>Full description:</strong> ${questionnaireState.fullDescription}`);
+  if (questionnaireState.wantedFeatures) lines.push(`<strong>Features they want:</strong> ${questionnaireState.wantedFeatures}`);
+  summaryBody.innerHTML = lines.length ? lines.join("<br>") : "Choose a platform to get started.";
+}
+
+function goToQuestionnaireStep(step) {
+  questionnaireState.step = step;
+  renderQuestionnaire();
+}
+
+function selectPlatform(value) {
+  questionnaireState.platform = value;
+  document.querySelectorAll(".platform-option").forEach(btn => {
+    btn.classList.toggle("selected", btn.dataset.platform === value);
+  });
+  renderQuestionnaire();
+}
+
+function toggleFeature(value) {
+  const exists = questionnaireState.features.includes(value);
+  questionnaireState.features = exists
+    ? questionnaireState.features.filter(item => item !== value)
+    : [...questionnaireState.features, value];
+  renderQuestionnaire();
+}
+
+function syncQuestionnaireToProjectDescription() {
+  const projectDesc = document.getElementById("projectDesc");
+  const lines = [];
+  if (questionnaireState.platform) lines.push(`Platform: ${questionnaireState.platform}`);
+  if (questionnaireState.features.length) lines.push(`Features: ${questionnaireState.features.join(", ")}`);
+  if (questionnaireState.fullDescription) lines.push(`Full description: ${questionnaireState.fullDescription}`);
+  if (questionnaireState.wantedFeatures) lines.push(`Features they want: ${questionnaireState.wantedFeatures}`);
+  projectDesc.value = lines.join("\n\n");
+}
+
+document.querySelectorAll(".platform-option").forEach(btn => {
+  btn.addEventListener("click", () => selectPlatform(btn.dataset.platform));
+});
+
+document.querySelectorAll(".feature-option input").forEach(checkbox => {
+  checkbox.addEventListener("change", () => {
+    toggleFeature(checkbox.value);
+  });
+});
+
+document.getElementById("q-full-description").addEventListener("input", function() {
+  questionnaireState.fullDescription = this.value.trim();
+  renderQuestionnaire();
+});
+
+document.getElementById("q-features-want").addEventListener("input", function() {
+  questionnaireState.wantedFeatures = this.value.trim();
+  renderQuestionnaire();
+});
+
+prevBtn.addEventListener("click", () => {
+  if (questionnaireState.step > 0) goToQuestionnaireStep(questionnaireState.step - 1);
+});
+
+nextBtn.addEventListener("click", () => {
+  if (questionnaireState.step < questionnairePanels.length - 1) {
+    if (questionnaireState.step === 0 && !questionnaireState.platform) {
+      summaryBody.innerHTML = "Please choose a platform before continuing.";
+      return;
+    }
+    goToQuestionnaireStep(questionnaireState.step + 1);
+    return;
+  }
+
+  syncQuestionnaireToProjectDescription();
+  summaryBody.innerHTML = "<strong>Questionnaire saved to your project details.</strong>";
+  document.getElementById("projectDesc").scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+renderQuestionnaire();
 
 // ── Confirmation code generator ────────────────────────────
 function genCode() {
