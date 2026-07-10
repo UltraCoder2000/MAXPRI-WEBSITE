@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order Your App — Maxpri</title>
+<title>Order Your App: Professional - Maxpri</title>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>(function(){emailjs.init("DuL1BMXa7eKGly4wK");})()</script>
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -325,25 +325,25 @@
          Replace each comment below with your PayPal button code.
          ═══════════════════════════════════════════════════════════ -->
     
-    <!-- ── TIER 0 · Starter · $800 total ── -->
+    <!-- ── TIER 0 · Starter · $550 total ── -->
     <div class="pp-wrap">
       <div class="pp-label">Buy Starter</div>
       <div id="paypal-btn-starter" class="pay-actions">
         <form action="https://www.paypal.com/ncp/payment/A2NMS9YR33ZP6" method="post" target="_blank" class="pay-btn-form">
-          <button type="submit" class="pay-btn">Pay $800 — Buy Starter</button>
+          <button type="submit" class="pay-btn">Pay $550 — Buy Starter</button>
         </form>
-        <div class="pay-meta">$800 total</div>
+        <div class="pay-meta">$550 total</div>
       </div>
     </div>
 
-    <!-- ── TIER 1 · Professional · $1200 total ── -->
+    <!-- ── TIER 1 · Professional · $720 total ── -->
     <div class="pp-wrap">
       <div class="pp-label">Buy Professional</div>
       <div id="paypal-btn-professional" class="pay-actions">
         <form action="https://www.paypal.com/ncp/payment/386Z89WU58TBG" method="post" target="_blank" class="pay-btn-form">
-          <button type="submit" class="pay-btn">Pay $1200 — Buy Professional</button>
+          <button type="submit" class="pay-btn">Pay $720 — Buy Professional</button>
         </form>
-        <div class="pay-meta">$1200 total</div>
+        <div class="pay-meta">$720 total</div>
       </div>
     </div>
 
@@ -387,19 +387,19 @@
 const TIERS = [
   {
     slug: "starter",
-    name: "Starter", price: 800, delivery: "1–2 weeks",
+    name: "Starter", price: 550, delivery: "1–2 weeks",
     desc: "Perfect for small businesses and MVPs.",
     features: ["Simple web or mobile app","Basic user authentication","Database integration","Responsive design","3 months support","2–4 week delivery"]
   },
   {
     slug: "professional",
-    name: "Professional", price: 1200, delivery: "5–8 weeks", pop: true,
+    name: "Professional", price: 720, delivery: "5–8 weeks", pop: true,
     desc: "Full-featured applications for growing businesses.",
     features: ["Advanced web / mobile app","Custom API development","Third-party integrations","Admin dashboard","Payment processing","6 months support","6–12 week delivery"]
   },
   {
     slug: "enterprise",
-    name: "Enterprise", price: 2000, delivery: "Custom timeline",
+    name: "Enterprise", price: 1200 , delivery: "Custom timeline",
     desc: "Large-scale systems with advanced architecture.",
     features: ["Multi-platform application","Microservices architecture","Advanced security features","Real-time capabilities","Cloud infrastructure setup","12 months support","Custom timeline"]
   }
@@ -425,10 +425,7 @@ function getTierPath(idx) {
   const tier = TIERS[idx];
   const currentParts = window.location.pathname.split("/").filter(Boolean);
   const knownSlugs = new Set(TIERS.map(t => t.slug));
-  const cleanedParts = currentParts.filter(part => {
-    const lower = part.toLowerCase();
-    return !knownSlugs.has(lower) && lower !== "index.html" && lower !== "index.htm";
-  });
+  const cleanedParts = currentParts.filter(part => !knownSlugs.has(part.toLowerCase()));
   cleanedParts.push(tier.slug);
   return "/" + cleanedParts.join("/");
 }
